@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
+use App\Models\Sales;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret')
         ]);
+
+        Sales::factory(3)->create();
     }
 }
