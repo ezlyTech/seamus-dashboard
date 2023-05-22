@@ -1,4 +1,4 @@
-<thead>
+<thead class="position-relative">
     <tr>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales Date</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
@@ -23,7 +23,7 @@
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">RTS Tracking Number</th>
-        <th class="text-secondary opacity-7"></th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white">Action</th>
     </tr>
 </thead>

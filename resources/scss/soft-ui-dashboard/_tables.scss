@@ -5,9 +5,14 @@
   
   thead th {
     padding: $table-head-spacer-y $table-head-spacer-x;
+    padding-left: 10px;
     text-transform: $table-head-text-transform;
     letter-spacing: $table-head-letter-spacing;
     border-bottom: $table-border-width solid $table-border-color;
+
+    &:first-child {
+      padding-left: 24px;
+    }
   }
 
   th {
@@ -19,6 +24,9 @@
       height: $table-progress-height;
       width: $table-progress-width;
       margin: $table-progress-margin; 
+    }
+    &:first-child {
+      padding-left: 24px;
     }
   }
 

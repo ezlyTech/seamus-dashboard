@@ -22661,9 +22661,13 @@ hr.horizontal.gray-light {
 }
 .table thead th {
   padding: 0.75rem 1.5rem;
+  padding-left: 10px;
   text-transform: capitalize;
   letter-spacing: 0px;
   border-bottom: 1px solid #e9ecef;
+}
+.table thead th:first-child {
+  padding-left: 24px;
 }
 .table th {
   font-weight: 600;
@@ -22672,6 +22676,9 @@ hr.horizontal.gray-light {
   height: 3px;
   width: 120px;
   margin: 0;
+}
+.table td:first-child {
+  padding-left: 24px;
 }
 .table td,
 .table th {
