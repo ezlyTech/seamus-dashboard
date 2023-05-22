@@ -6,14 +6,19 @@ use Livewire\Component;
 use App\Models\Sales;
 
 class Orders extends Component
-{
-    public function mount()
-    {
-        
+{    
+    public $dataSales;
+
+    public function mount() {
+        $this->dataSales = Sales::all();
     }
 
     public function render()
     {
-        return view('livewire.sales');
+        // return view('livewire.orders');
+        // return view('livewire.orders', [
+        //     'sales' => Sales::all(),
+        // ]);
+        return view('components.orders.table.table', ['sales'=>$this->dataSales]);
     }
 }

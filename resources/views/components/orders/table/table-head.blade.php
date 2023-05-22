@@ -24,6 +24,6 @@
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
-        <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white">Action</th>
+        <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
     </tr>
 </thead>

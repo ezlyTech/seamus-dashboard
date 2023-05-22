@@ -28,8 +28,13 @@
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0">
-                <x-sales.table.table-head />
-                <x-sales.table.table-body />
+                <x-orders.table.table-head />
+                <x-orders.table.table-body />
+                @forelse ($sales as $key => $sale)
+                    <x-orders.table.table-body :dataSales="$sale" :key="$key" />
+                @empty
+                    <x-orders.table.table-empty/>
+                @endforelse
             </table>
           </div>
         </div>

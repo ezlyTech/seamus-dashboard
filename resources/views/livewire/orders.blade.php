@@ -1,6 +1,6 @@
 <main class="main-content">
     <div class="container-fluid py-4">
         {{-- Tables --}}
-        @include('components.sales.table.table')
+        @include('components.orders.table.table')
     </div>
 </main>

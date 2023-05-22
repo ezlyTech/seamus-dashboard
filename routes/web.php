@@ -56,6 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 
     // Route::get('/sales-page', [SalesController::class, 'index'])->name('sales');
-    Route::get('/sales-page', [\App\Http\Livewire\Orders::class, '__invoke'])->name('sales');
+    Route::get('/sales-page', [\App\Http\Livewire\Orders::class, '__invoke'])->name('orders');
 });
 

@@ -22680,6 +22680,9 @@ hr.horizontal.gray-light {
 .table td:first-child {
   padding-left: 24px;
 }
+.table td:last-child {
+  padding-right: 24px;
+}
 .table td,
 .table th {
   white-space: nowrap;
