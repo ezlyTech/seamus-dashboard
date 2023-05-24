@@ -6109,7 +6109,7 @@ textarea.form-control-lg {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 800px;
     margin: 1.75rem auto;
   }
 
@@ -21662,7 +21662,7 @@ hr.horizontal.gray-light {
 }
 
 .sidenav {
-  z-index: 9999;
+  z-index: 1000;
 }
 .sidenav .navbar-brand,
 .sidenav .navbar-heading {
