@@ -431,3 +431,9 @@ function sidenavTypeOnResize() {
     });
   }
 }
+
+
+// Close Add Modal
+window.livewire.on('orderStore', () => {
+  $('#addModal').modal('hide');
+});
