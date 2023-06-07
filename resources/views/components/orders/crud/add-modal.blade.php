@@ -8,7 +8,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form wire:submit.prevent="store">
+            <form wire:submit.prevent="orderStore">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">

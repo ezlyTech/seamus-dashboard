@@ -78,7 +78,7 @@ class Orders extends Component
     }
 
 
-    public function store()
+    public function orderStore()
     {
         $validatedDate = $this->validate([
             'sales_date' => 'required|date',

@@ -13,11 +13,12 @@
             <table class="table align-items-center mb-0">
                 <x-orders.table.table-head />
                 <x-orders.table.table-body />
-                @forelse ($sales as $key => $sale)
+                @foreach ($sales as $key => $sale)
                     <x-orders.table.table-body :dataSales="$sale" :wire:key="$key" />
-                @empty
+                @endforeach
+                {{-- @empty
                     <x-orders.table.table-empty/>
-                @endforelse
+                @endempty --}}
             </table>
           </div>
         </div>
@@ -30,8 +31,10 @@
 <x-orders.crud.add-modal />
 
 
-<script type="text/javascript">
-  // window.livewire.on('orderStore', () => {
-  //     $('#addModal').modal('hide');
-  // });
-</script>
+{{-- <script type="text/javascript">
+  document.addEventListener('livewire:available', function () {
+    window.livewire.on('orderStore', () => {
+      $('#addModal').modal('hide');
+    });
+  }.bind(this));
+</script> --}}
