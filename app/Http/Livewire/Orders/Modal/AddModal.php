@@ -42,34 +42,37 @@ class AddModal extends Component
 
 
     /**
-     * List of add/edit form rules
+     * Input fields on update validation
      */
-    protected $rules = [
-        'sales_date' => 'required',
-        'page' => 'required',
-        'csr_name' => 'required',
-        'customer_name' => 'required',
-        'number' => 'required',
-        'address_landmark' => 'required',
-        'main_item' => 'required',
-        'sku_1' => 'required',
-        'sku_2' => 'required',
-        'sku_3' => 'required',
-        'sku_4' => 'required',
-        'upseller' => 'required',
-        'upsell_item' => 'required',
-        'price' => 'required',
-        'upsell_price' => 'required',
-        'final_price' => 'required',
-        'notes' => 'required',
-        'call_text_status' => 'required',
-        'shipper' => 'required',
-        'courier' => 'required',
-        'status' => 'required',
-        'tracking_number' => 'required',
-        'pos' => 'required',
-        'rts_tracking_number' => 'required',
-    ];
+    public function updated($fields) 
+    {
+        $this->validateOnly($fields, [
+            'sales_date' => 'required',
+            'page' => 'required',
+            'csr_name' => 'required',
+            'customer_name' => 'required',
+            'number' => 'required',
+            'address_landmark' => 'required',
+            'main_item' => 'required',
+            'sku_1' => 'required',
+            'sku_2' => 'required',
+            'sku_3' => 'required',
+            'sku_4' => 'required',
+            'upseller' => 'required',
+            'upsell_item' => 'required',
+            'price' => 'required',
+            'upsell_price' => 'required',
+            'final_price' => 'required',
+            'notes' => 'required',
+            'call_text_status' => 'required',
+            'shipper' => 'required',
+            'courier' => 'required',
+            'status' => 'required',
+            'tracking_number' => 'required',
+            'pos' => 'required',
+            'rts_tracking_number' => 'required',
+        ]);
+    }
 
 
     /**
