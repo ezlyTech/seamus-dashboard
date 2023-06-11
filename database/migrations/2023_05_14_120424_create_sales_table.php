@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('sku_2')->nullable();
             $table->string('sku_3')->nullable();
             $table->string('sku_4')->nullable();
+            $table->string('upseller');
             $table->string('upsell_item');
             $table->float('price');
             $table->float('upsell_price');

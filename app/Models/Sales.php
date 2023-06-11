@@ -35,4 +35,5 @@ class Sales extends Model
         'pos',
         'rts_tracking_number'
     ];
+
 }

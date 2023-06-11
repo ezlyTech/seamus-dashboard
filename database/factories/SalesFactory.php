@@ -28,6 +28,7 @@ class SalesFactory extends Factory
             'sku_2' => $this->faker->randomDigit(),
             'sku_3' => $this->faker->randomDigit(),
             'sku_4' => $this->faker->randomDigit(),
+            'upseller' => $this->faker->name(),
             'upsell_item' => $this->faker->sentence(),
             'price' => $this->faker->randomDigit(),
             'upsell_price' => $this->faker->randomDigit(),
