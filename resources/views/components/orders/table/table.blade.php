@@ -14,12 +14,11 @@
             <table class="table align-items-center mb-0">
                 <x-orders.table.table-head />
                 <x-orders.table.table-body />
-                @foreach ($sales as $key => $sale)
-                    <x-orders.table.table-body :dataSales="$sale" :wire:key="$key" />
-                @endforeach
-                {{-- @empty
-                    <x-orders.table.table-empty/>
-                @endempty --}}
+                @forelse ($sales as $key => $sale)
+                  <x-orders.table.table-body :dataSales="$sale" :wire:key="$key" />
+                @empty
+                  <x-orders.table.table-empty/>
+                @endforelse
             </table>
           </div>
         </div>
