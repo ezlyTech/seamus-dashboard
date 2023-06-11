@@ -1,4 +1,5 @@
-<div class="row">
+<div>
+  <div class="row">
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
@@ -25,16 +26,8 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Modal -->
+  <livewire:orders.modal.add-modal />
 </div>
-
-<!-- Modal -->
-<x-orders.crud.add-modal />
-
-
-{{-- <script type="text/javascript">
-  document.addEventListener('livewire:available', function () {
-    window.livewire.on('orderStore', () => {
-      $('#addModal').modal('hide');
-    });
-  }.bind(this));
-</script> --}}
