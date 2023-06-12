@@ -7,14 +7,15 @@ use App\Models\Sales;
 
 class Orders extends Component
 {    
-    public $dataSales;
+    // public $dataSales;
 
-    public function mount() {
-        $this->dataSales = Sales::all();
-    }
+    // public function mount() {
+    //     $this->dataSales = Sales::all();
+    // }
 
     public function render()
     {
-        return view('components.orders.table.table', ['sales'=>$this->dataSales]);
+        $orders = Sales::all();
+        return view('livewire.orders', ['orders' => $orders]);
     }
 }

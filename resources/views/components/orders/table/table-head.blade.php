@@ -1,4 +1,4 @@
-<thead class="position-relative">
+{{-- <thead class="position-relative">
     <tr>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales Date</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
@@ -26,4 +26,4 @@
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
         <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
     </tr>
-</thead>
+</thead> --}}
