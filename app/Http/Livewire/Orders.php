@@ -7,12 +7,6 @@ use App\Models\Sales;
 
 class Orders extends Component
 {    
-    // public $dataSales;
-
-    // public function mount() {
-    //     $this->dataSales = Sales::all();
-    // }
-
     public function render()
     {
         $orders = Sales::all();
