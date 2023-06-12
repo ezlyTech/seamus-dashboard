@@ -121,15 +121,15 @@
                                             </td>
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="Edit user">
+                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#editModal">
                                                     <i class="fa fa-solid fa-pencil"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="View user">
+                                                </button>
+                                                <button class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="View user">
                                                     <i class="fa fa-regular fa-eye"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="Delete user">
+                                                </button>
+                                                <button class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="Delete user">
                                                     <i class="fa fa-solid fa-trash"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -150,6 +150,7 @@
           
             <!-- Modal -->
             <livewire:orders.modal.add-modal />
+            <livewire:orders.modal.edit-modal />
         </div>
     </div>
 </main>
