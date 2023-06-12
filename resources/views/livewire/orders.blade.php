@@ -121,7 +121,7 @@
                                             </td>
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
-                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
                                                     <i class="fa fa-solid fa-pencil"></i>
                                                 </button>
                                                 <button class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="View user">
