@@ -305,6 +305,16 @@ class Orders extends Component
     }
 
 
+    /**
+     * Close Modal
+     * 
+    */
+    public function closeModal() {
+        $this->resetFields();
+    }
+
+
+
     public function render()
     {
         $orders = Sales::all();

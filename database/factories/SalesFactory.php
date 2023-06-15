@@ -21,7 +21,7 @@ class SalesFactory extends Factory
             'page' => $this->faker->sentence(),
             'csr_name' => $this->faker->name(),
             'customer_name' => $this->faker->name(),
-            'number' => $this->faker->unique()->randomDigit(),
+            'number' => $this->faker->randomDigit(),
             'address_landmark' => $this->faker->city(),
             'main_item' => $this->faker->sentence(),
             'sku_1' => $this->faker->randomDigit(),

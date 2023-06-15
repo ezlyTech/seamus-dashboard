@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(1000);
             $table->date('sales_date');
             $table->string('page');
             $table->string('csr_name');
@@ -26,17 +26,17 @@ return new class extends Migration
             $table->string('sku_4')->nullable();
             $table->string('upseller');
             $table->string('upsell_item');
-            $table->float('price');
-            $table->float('upsell_price');
-            $table->float('final_price');
-            $table->longText('notes');
+            $table->decimal('price');
+            $table->decimal('upsell_price');
+            $table->decimal('final_price');
+            $table->longText('notes')->nullable();
             $table->string('call_text_status');
             $table->string('shipper');
             $table->string('courier');
             $table->string('status');
-            $table->integer('tracking_number');
+            $table->string('tracking_number');
             $table->string('pos');
-            $table->float('rts_tracking_number');
+            $table->string('rts_tracking_number');
             $table->timestamps();
         });
     }
