@@ -124,7 +124,7 @@
                                                 <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
                                                     <i class="fa fa-solid fa-pencil"></i>
                                                 </button>
-                                                <button class="text-secondary font-weight-bold text-xs px-1" data-toggle="tooltip" data-original-title="Delete user">
+                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#deleteModal" wire:click="deleteConfirmation({{ $order->id }})">
                                                     <i class="fa fa-solid fa-trash"></i>
                                                 </button>
                                             </td>
@@ -651,6 +651,30 @@
                                 <button type="submit" class="btn bg-gradient-primary">Save changes</button>
                             </div>
                         </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Delete Modal -->
+            <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <p>Warning: This action cannot be undone!</p>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn bg-danger" wire:click="deleteOrderData()">Delete</button>
+                        </div>
                     </div>
                   </div>
                 </div>
