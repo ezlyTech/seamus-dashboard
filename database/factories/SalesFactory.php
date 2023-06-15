@@ -18,7 +18,7 @@ class SalesFactory extends Factory
     {
         return [
             'sales_date' => $this->faker->date(),
-            'page' => $this->faker->sentence(),
+            'page_name' => $this->faker->sentence(),
             'csr_name' => $this->faker->name(),
             'customer_name' => $this->faker->name(),
             'number' => $this->faker->randomDigit(),

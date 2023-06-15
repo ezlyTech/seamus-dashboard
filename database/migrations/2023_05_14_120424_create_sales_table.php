@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id()->from(1000);
             $table->date('sales_date');
-            $table->string('page');
+            $table->string('page_name');
             $table->string('csr_name');
             $table->string('customer_name');
             $table->integer('number');
