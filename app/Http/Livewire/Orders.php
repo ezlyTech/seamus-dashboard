@@ -300,6 +300,8 @@ class Orders extends Component
         $this->dispatchBrowserEvent('close-edit-modal');
 
         session()->flash('message', 'Record has been deleted successfully!');
+
+        $this->order_delete_id = '';
     }
 
 
