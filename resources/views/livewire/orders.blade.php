@@ -689,6 +689,10 @@
                 window.addEventListener('close-edit-modal', event => {
                     $('#editModal').modal('hide');
                 });
+
+                window.addEventListener('close-delete-modal', event => {
+                    $('#deleteModal').modal('hide');
+                });
             </script>
         </div>
     </div>

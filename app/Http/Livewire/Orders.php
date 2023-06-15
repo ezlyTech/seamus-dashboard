@@ -10,7 +10,6 @@ class Orders extends Component
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public 
-    $order_edit_id, 
     $order_id, 
     $sales_date, 
     $page, 
@@ -35,7 +34,9 @@ class Orders extends Component
     $status,
     $tracking_number,
     $pos,
-    $rts_tracking_number;
+    $rts_tracking_number,
+    $order_edit_id, 
+    $order_delete_id;
 
 
     /**
@@ -277,6 +278,28 @@ class Orders extends Component
         // Hide modal
         $this->dispatchBrowserEvent('close-edit-modal');
         $this->resetFields();
+    }
+
+
+
+    /**
+     * Delete data
+     * 
+    */
+    public function deleteConfirmation($id) {
+        // $sales = Sales::where('id', $id)->first();
+
+        $this->order_delete_id = $id;
+    }
+
+    public function deleteOrderData() {
+        $sales = Sales::where('id', $this->order_delete_id)->first();
+        $sales->delete();
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-edit-modal');
+
+        session()->flash('message', 'Record has been deleted successfully!');
     }
 
 
