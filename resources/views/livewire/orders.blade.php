@@ -16,6 +16,7 @@
                         <table class="table align-items-center mb-0">
                             <thead class="position-relative">
                                 <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales Date</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
@@ -47,6 +48,9 @@
                                 @if ( $orders->count() > 0 )
                                     @foreach ( $orders as $order )
                                         <tr>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->id }}</span>
+                                            </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sales_date }}</span>
                                             </td>
@@ -697,7 +701,7 @@
         </div>
 
 
-        
+
         <!-- Pagination -->
         <div class="d-flex justify-content-end">
             {!! $orders->links() !!}
