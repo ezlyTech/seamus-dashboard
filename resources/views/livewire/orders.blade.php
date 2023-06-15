@@ -51,7 +51,7 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sales_date }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->page }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->page_name }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->csr_name }}</span>
@@ -180,9 +180,9 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="page" class="form-control-label">Page</label>
-                                    <input class="form-control" type="text" id="page" wire:model="page">
-                                    @error('page')
+                                    <label for="page_name" class="form-control-label">Page</label>
+                                    <input class="form-control" type="text" id="page_name" wire:model="page_name">
+                                    @error('page_name')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -436,9 +436,9 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="page" class="form-control-label">Page</label>
-                                    <input class="form-control" type="text" id="page" wire:model="page">
-                                    @error('page')
+                                    <label for="page_name" class="form-control-label">Page</label>
+                                    <input class="form-control" type="text" id="page_name" wire:model="page_name">
+                                    @error('page_name')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -695,5 +695,8 @@
                 });
             </script>
         </div>
+
+    {{ $orders->links() }}
     </div>
+
 </main>

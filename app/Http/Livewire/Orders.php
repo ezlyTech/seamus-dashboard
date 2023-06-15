@@ -3,16 +3,20 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Sales;
 
 class Orders extends Component
 {    
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public 
     $order_id, 
     $sales_date, 
-    $page, 
+    $page_name, 
     $csr_name, 
     $customer_name,
     $number,
@@ -46,7 +50,7 @@ class Orders extends Component
     {
         $this->validateOnly($fields, [
             'sales_date' => 'required',
-            'page' => 'required',
+            'page_name' => 'required',
             'csr_name' => 'required',
             'customer_name' => 'required',
             'number' => 'required',
@@ -81,7 +85,7 @@ class Orders extends Component
     {
         $this->order_edit_id = '';
         $this->sales_date = '';
-        $this->page = '';
+        $this->page_name = '';
         $this->csr_name = '';
         $this->customer_name = '';
         $this->number = '';
@@ -118,7 +122,7 @@ class Orders extends Component
         // on form submit validation
         $this->validate([
             'sales_date' => 'required',
-            'page' => 'required',
+            'page_name' => 'required',
             'csr_name' => 'required',
             'customer_name' => 'required',
             'number' => 'required',
@@ -146,7 +150,7 @@ class Orders extends Component
         // Add order data
         $sales = new Sales();
         $sales->sales_date = $this->sales_date;
-        $sales->page = $this->page;
+        $sales->page_name = $this->page_name;
         $sales->csr_name = $this->csr_name;
         $sales->customer_name = $this->customer_name;
         $sales->number = $this->number;
@@ -190,7 +194,7 @@ class Orders extends Component
 
         $this->order_edit_id = $sales->id;
         $this->sales_date = $sales->sales_date;
-        $this->page = $sales->page;
+        $this->page_name = $sales->page_name;
         $this->csr_name = $sales->csr_name;
         $this->customer_name = $sales->customer_name;
         $this->number = $sales->number;
@@ -219,7 +223,7 @@ class Orders extends Component
         // on form submit validation
         $this->validate([
             'sales_date' => 'required',
-            'page' => 'required',
+            'page_name' => 'required',
             'csr_name' => 'required',
             'customer_name' => 'required',
             'number' => 'required',
@@ -247,7 +251,7 @@ class Orders extends Component
         $sales = Sales::where('id', $this->order_edit_id)->first();
 
         $sales->sales_date = $this->sales_date;
-        $sales->page = $this->page;
+        $sales->page_name = $this->page_name;
         $sales->csr_name = $this->csr_name;
         $sales->customer_name = $this->customer_name;
         $sales->number = $this->number;
@@ -317,8 +321,10 @@ class Orders extends Component
 
     public function render()
     {
-        $orders = Sales::all();
-        return view('livewire.orders', ['orders' => $orders]);
+        // $orders = Sales::all();
+        return view('livewire.orders', [
+            'orders' => Sales::paginate(10),
+        ]);
     }
     
 }
