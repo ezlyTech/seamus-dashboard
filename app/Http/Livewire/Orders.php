@@ -10,7 +10,7 @@ class Orders extends Component
 {    
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    
+
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public 
@@ -323,7 +323,7 @@ class Orders extends Component
     {
         // $orders = Sales::all();
         return view('livewire.orders', [
-            'orders' => Sales::paginate(10),
+            'orders' => Sales::paginate(15),
         ]);
     }
     

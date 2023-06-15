@@ -696,7 +696,12 @@
             </script>
         </div>
 
-    {{ $orders->links() }}
+
+        
+        <!-- Pagination -->
+        <div class="d-flex justify-content-end">
+            {!! $orders->links() !!}
+        </div>
     </div>
 
 </main>
