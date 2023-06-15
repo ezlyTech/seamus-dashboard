@@ -67,9 +67,33 @@ class EditModal extends Component
     }
 
 
-
     public function editOrder($id) {
-        
+        $sales = Sales::where('id', $id)->first();
+
+        $this->sales_date = $sales->sales_date;
+        $this->page = $sales->page;
+        $this->csr_name = $sales->csr_name;
+        $this->customer_name = $sales->customer_name;
+        $this->number = $sales->number;
+        $this->address_landmark = $sales->address_landmark;
+        $this->main_item = $sales->main_item;
+        $this->sku_1 = $sales->sku_1;
+        $this->sku_2 = $sales->sku_2;
+        $this->sku_3 = $sales->sku_3;
+        $this->sku_4 = $sales->sku_4;
+        $this->upseller = $sales->upseller;
+        $this->upsell_item = $sales->upsell_item;
+        $this->price = $sales->price;
+        $this->upsell_price = $sales->upsell_price;
+        $this->final_price = $sales->final_price;
+        $this->notes = $sales->notes;
+        $this->call_text_status = $sales->call_text_status;
+        $this->shipper = $sales->shipper;
+        $this->courier = $sales->courier;
+        $this->status = $sales->status;
+        $this->tracking_number = $sales->tracking_number;
+        $this->pos = $sales->pos;
+        $this->rts_tracking_number = $sales->rts_tracking_number;
     }
 
     public function editOrderData() {
