@@ -13,7 +13,7 @@
                   </div>
                   <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0 table-striped table-hover" style="border-collapse: collapse">
                             <thead class="position-relative">
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
@@ -125,12 +125,12 @@
                                             </td>
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
-                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
+                                                <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
                                                     <i class="fa fa-solid fa-pencil"></i>
-                                                </button>
-                                                <button class="text-secondary font-weight-bold text-xs px-1" data-bs-toggle="modal" data-bs-target="#deleteModal" wire:click="deleteConfirmation({{ $order->id }})">
+                                                </span>
+                                                <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" wire:click="deleteConfirmation({{ $order->id }})">
                                                     <i class="fa fa-solid fa-trash"></i>
-                                                </button>
+                                                </span>
                                             </td>
                                         </tr>
                                     @endforeach
