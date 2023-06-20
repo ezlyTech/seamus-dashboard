@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Sales;
+use App\Models\Status;
 
 class Orders extends Component
 {    
@@ -329,7 +330,7 @@ class Orders extends Component
     {
         // $orders = Sales::all();
         return view('livewire.orders', [
-            // 'orders' => Sales::paginate(15),
+            'statuses'=>Status::orderBy('status_name', 'asc')->get(),
             'orders'=>Sales::when($this->byStatus, function($query) {
                                 $query->where('status', $this->byStatus);
                             })
