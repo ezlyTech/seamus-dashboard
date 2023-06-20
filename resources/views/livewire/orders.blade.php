@@ -1,6 +1,38 @@
 <main class="main-content">
     <div class="container-fluid py-4">
         <div>
+            <!-- Filters -->
+            <div class="row">
+                <div class="col-12">
+                    <form action="" method="GET">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="Filter by Date"></label>
+                                <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Filter by Status"></label>
+                                <select name="status" class="form-control">
+                                    <option value="">Select Status</option>
+                                    <option value="in progress">in progress</option>
+                                    <option value="completed">completed</option>
+                                    <option value="pending">pending</option>
+                                    <option value="cancelled">cancelled</option>
+                                    <option value="out-for-delivery">out for delivery</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <br>
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+
+
+            <!-- Table -->
             <div class="row">
               <div class="col-12">
                 <div class="card mb-4">
