@@ -10,7 +10,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
-use App\Http\Livewire\Orders;
+use App\Http\Controllers\SalesController;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Rtl;
@@ -18,7 +18,9 @@ use App\Http\Livewire\Rtl;
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 
-use App\Http\Controllers\SalesController;
+use App\Http\Livewire\Orders;
+use App\Http\Livewire\Billings;
+use App\Http\Livewire\General;
 
 use Illuminate\Http\Request;
 
@@ -57,5 +59,8 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/sales-page', [SalesController::class, 'index'])->name('sales');
     Route::get('/sales-page', [\App\Http\Livewire\Orders::class, '__invoke'])->name('orders');
+    Route::get('/billings', Billings::class)->name('billings');
+    Route::get('/shipment', Billings::class)->name('shipment');
+    Route::get('/general-settings', General::class)->name('general-settings');
 });
 
