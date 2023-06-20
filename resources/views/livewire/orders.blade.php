@@ -6,24 +6,27 @@
                 <div class="col-12">
                     <form action="" method="GET">
                         <div class="row">
-                            <div class="col-md-3">
-                                <label for="Filter by Date"></label>
-                                <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="Filter by Status"></label>
-                                <select name="status" class="form-control">
+                            <div class="col-md-2">
+                                <label for="">Status</label>
+                                <select wire:model="byStatus" class="form-control">
                                     <option value="">Select Status</option>
-                                    <option value="in progress">in progress</option>
-                                    <option value="completed">completed</option>
-                                    <option value="pending">pending</option>
-                                    <option value="cancelled">cancelled</option>
-                                    <option value="out-for-delivery">out for delivery</option>
+                                    @foreach ($orders as $order)
+                                        <option value="{{ $order->id }}">{{ $order->status }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-6">
-                                <br>
-                                <button type="submit" class="btn btn-primary">Filter</button>
+                            <div class="col-md-2">
+                                <label for="">Search</label>
+                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Type to search...">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Order By</label>
+                                <select class="form-control" wire:model="orderBy">
+                                    <option value="page_name">Page Name</option>
+                                    <option value="csr_name">CSR Name</option>
+                                    <option value="csr_name">Cusstomer Name</option>
+                                    <option value="address_landmark">Address Landmark</option>
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -735,7 +738,15 @@
 
 
         <!-- Pagination -->
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-between">
+            <form action="" method="GET" class="d-flex align-items-center" style="width: fit-content">
+                <select class="form-control" style="width: fit-content" wire:model="perPage">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+                <label for="" class="fs-6 fw-normal" style="padding-left: 5px; padding-top: 5px; ">Per Page</label>
+            </form>
             {!! $orders->links() !!}
         </div>
     </div>

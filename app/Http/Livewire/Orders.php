@@ -13,6 +13,12 @@ class Orders extends Component
 
     protected $listeners = ['refreshComponent' => '$refresh'];
 
+    public $byStatus = null;
+    public $perPage = 15;
+    public $orderBy = 'page_name';
+    public $sortBy = 'asc';
+    public $search;
+
     public 
     $order_id, 
     $sales_date, 
@@ -323,7 +329,13 @@ class Orders extends Component
     {
         // $orders = Sales::all();
         return view('livewire.orders', [
-            'orders' => Sales::paginate(15),
+            // 'orders' => Sales::paginate(15),
+            'orders'=>Sales::when($this->byStatus, function($query) {
+                                $query->where('status', $this->byStatus);
+                            })
+                            ->search(trim($this->search))
+                            ->orderBy($this->orderBy, $this->sortBy)
+                            ->paginate($this->perPage)
         ]);
     }
     

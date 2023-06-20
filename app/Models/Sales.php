@@ -10,4 +10,12 @@ class Sales extends Model
     use HasFactory;
 
     protected $table = 'sales';
+
+    public function scopeSearch($query, $term) {
+        $term = "%$term%";
+        $query->where(function($query) use ($term) {
+            $query->where('page_name', 'like', $term)
+                  ->orWhere('csr_name', 'like', $term);
+        });
+    }
 }
