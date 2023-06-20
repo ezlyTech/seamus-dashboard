@@ -50,10 +50,16 @@
                 <div class="card mb-4">
                   <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                     <h6>Sales table</h6>
-                    <button class="btn btn-icon btn-3 btn-info" type="button" data-bs-toggle="modal" data-bs-target="#addModal">
-                      <span class="btn-inner--icon pe-1"><i class="fa fa-plus"></i></span>
-                      <span class="btn-inner--text">Add new</span>
-                    </button>
+                    <div>
+                        <a class="btn btn-icon btn-3 btn-outline-primary" type="button" href="{{ route('import') }}">
+                            <span class="btn-inner--icon pe-1"><i class="fa fa-plus"></i></span>
+                            <span class="btn-inner--text">Import CSV</span>
+                        </a>
+                        <button class="btn btn-icon btn-3 btn-info" type="button" data-bs-toggle="modal" data-bs-target="#addModal">
+                          <span class="btn-inner--icon pe-1"><i class="fa fa-plus"></i></span>
+                          <span class="btn-inner--text">Add new</span>
+                        </button>
+                    </div>
                   </div>
                   <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
