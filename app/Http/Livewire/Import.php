@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
+
 use Livewire\Component;
 use App\Imports\SalesImport;
 use Excel;
@@ -14,7 +16,7 @@ class Import extends Component
     */
     public function importfile(Request $request) {
         Excel::import(new SalesImport, $request->file);
-        return "Records are imported successfully!"
+        return view('livewire.orders');
     }
 
 
