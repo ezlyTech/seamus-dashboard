@@ -7,6 +7,14 @@
                     <form action="" method="GET">
                         <div class="row">
                             <div class="col-md-2">
+                                <label for="">From</label>
+                                <input wire:model="from" type="date" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">To</label>
+                                <input wire:model="to" type="date" class="form-control">
+                            </div>
+                            <div class="col-md-2">
                                 <label for="">Status</label>
                                 <select wire:model="byStatus" class="form-control">
                                     <option value="">Select Status</option>

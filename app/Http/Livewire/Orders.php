@@ -7,6 +7,8 @@ use Livewire\WithPagination;
 use App\Models\Sales;
 use App\Models\Status;
 
+use Carbon\Carbon;
+
 class Orders extends Component
 {    
     use WithPagination;
@@ -18,6 +20,8 @@ class Orders extends Component
     public $perPage = 15;
     public $orderBy = 'page_name';
     public $sortBy = 'asc';
+    public $from;
+    public $to;
     public $search;
 
     public 
@@ -328,11 +332,16 @@ class Orders extends Component
 
     public function render()
     {
-        // $orders = Sales::all();
         return view('livewire.orders', [
             'statuses'=>Status::orderBy('status_name', 'asc')->get(),
             'orders'=>Sales::when($this->byStatus, function($query) {
                                 $query->where('status_id', $this->byStatus);
+                            })
+                            ->when($this->from, function($query) {
+                                $query->where('sales_date', '>=', Carbon::parse($this->from)->startOfDay());
+                            })
+                            ->when($this->to, function ($query) {
+                                $query->where('sales_date', '<=', Carbon::parse($this->to)->endOfDay());
                             })
                             ->search(trim($this->search))
                             ->orderBy($this->orderBy, $this->sortBy)
