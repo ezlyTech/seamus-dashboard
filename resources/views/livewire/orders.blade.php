@@ -287,7 +287,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
-                                        <select class="form-control" wire:model="status">
+                                        <select class="form-control" wire:model="status_id">
                                             <option value="">Select Status</option>
                                             @foreach ($statuses as $status)
                                                 <option value="{{ $status->id }}">{{ $status->status_name }}</option>
@@ -548,7 +548,12 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
-                                        <input class="form-control" type="text" id="status" wire:model="status">
+                                        <select class="form-control" wire:model="status_id">
+                                            <option value="">Select Status</option>
+                                            @foreach ($statuses as $status)
+                                                <option value="{{ $status->id }}">{{ $status->status_name }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('status')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
