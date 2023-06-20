@@ -4,7 +4,7 @@
             <!-- Filters -->
             <div class="row">
                 <div class="col-12">
-                    <form action="" method="GET">
+                    <form action="" method="GET" style="width: 100%">
                         <div class="row">
                             <div class="col-md-2">
                                 <label for="">From</label>
@@ -14,9 +14,10 @@
                                 <label for="">To</label>
                                 <input wire:model="to" type="date" class="form-control">
                             </div>
+                            <div class="col-md-2"></div>
                             <div class="col-md-2">
                                 <label for="">Status</label>
-                                <select wire:model="byStatus" class="form-control">
+                                <select wire:model="byStatus" class="form-select">
                                     <option value="">Select Status</option>
                                     @foreach ($statuses as $status)
                                         <option value="{{ $status->id }}">{{ $status->status_name }}</option>
@@ -29,7 +30,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Order By</label>
-                                <select class="form-control" wire:model="orderBy">
+                                <select class="form-select" wire:model="orderBy">
                                     <option value="page_name">Page Name</option>
                                     <option value="csr_name">CSR Name</option>
                                     <option value="customer_name">Customer Name</option>
@@ -307,7 +308,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
-                                        <select class="form-control" wire:model="status_id">
+                                        <select class="form-select" wire:model="status_id">
                                             <option value="">Select Status</option>
                                             @foreach ($statuses as $status)
                                                 <option value="{{ $status->id }}">{{ $status->status_name }}</option>
@@ -568,7 +569,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
-                                        <select class="form-control" wire:model="status_id">
+                                        <select class="form-select" wire:model="status_id">
                                             <option value="">Select Status</option>
                                             @foreach ($statuses as $status)
                                                 <option value="{{ $status->id }}">{{ $status->status_name }}</option>
