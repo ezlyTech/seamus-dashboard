@@ -20,6 +20,7 @@ use App\Http\Livewire\LaravelExamples\UserManagement;
 
 use App\Http\Livewire\Orders;
 use App\Http\Livewire\Billings;
+use App\Http\Livewire\Shipment;
 use App\Http\Livewire\General;
 
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ Route::middleware('auth')->group(function () {
     // Route::get('/sales-page', [SalesController::class, 'index'])->name('sales');
     Route::get('/sales-page', [\App\Http\Livewire\Orders::class, '__invoke'])->name('orders');
     Route::get('/billings', Billings::class)->name('billings');
-    Route::get('/shipment', Billings::class)->name('shipment');
+    Route::get('/shipment', Shipment::class)->name('shipment');
     Route::get('/general-settings', General::class)->name('general-settings');
 });
 
