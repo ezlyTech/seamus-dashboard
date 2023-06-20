@@ -24,7 +24,7 @@
                                 <select class="form-control" wire:model="orderBy">
                                     <option value="page_name">Page Name</option>
                                     <option value="csr_name">CSR Name</option>
-                                    <option value="csr_name">Cusstomer Name</option>
+                                    <option value="customer_name">Customer Name</option>
                                     <option value="address_landmark">Address Landmark</option>
                                 </select>
                             </div>
@@ -56,7 +56,6 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address Landmark</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Main Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 1</th>
@@ -68,14 +67,15 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upsell Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Final Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shipper</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Courier</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
                                 </tr>
                             </thead>
@@ -97,9 +97,6 @@
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->customer_name }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->address_landmark }}</span>
@@ -135,12 +132,6 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->final_price }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->notes }}</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
-                                            </td>
-                                            <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->shipper }}</span>
                                             </td>
                                             <td>
@@ -149,14 +140,23 @@
                                             <td class="align-middle text-sm">
                                                 <span class="badge badge-sm bg-gradient-success">{{ $order->status }}</span>
                                             </td>
+                                            <td class="align-middle text-sm">
+                                                <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
+                                            </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->tracking_number }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->rts_tracking_number }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->pos }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->rts_tracking_number }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->notes }}</span>
                                             </td>
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
