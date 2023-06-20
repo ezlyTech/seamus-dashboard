@@ -230,7 +230,7 @@
                 </a>
             </li> --}}
 
-            <li class="nav-item mt-2">
+            {{-- <li class="nav-item mt-2">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Example pages</h6>
             </li>
             <li class="nav-item">
@@ -411,7 +411,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Sign Up</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </aside>
