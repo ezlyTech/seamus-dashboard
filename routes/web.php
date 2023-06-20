@@ -66,5 +66,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/shipment', Shipment::class)->name('shipment');
     Route::get('/general-settings', General::class)->name('general-settings');
     Route::get('/orders/import', Import::class)->name('import');
+    Route::get('/orders/importfile', Import::class['importfile'])->name('importfile');
 });
 
