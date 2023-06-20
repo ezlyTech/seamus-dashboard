@@ -146,7 +146,19 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">{{ $order->status->status_name }}</span>
+                                                <span class="badge badge-sm 
+                                                {{ $order->status->status_name == 'Delivered' ? 'delivered' : ''  }}
+                                                {{ $order->status->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
+                                                {{ $order->status->status_name == 'In-Transit' ? 'in-transit' : ''  }}
+                                                {{ $order->status->status_name == 'Incomplete' ? 'incomplete' : ''  }}
+                                                {{ $order->status->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
+                                                {{ $order->status->status_name == 'Problematic' ? 'problematic' : ''  }}
+                                                {{ $order->status->status_name == 'Reserved' ? 'reserved' : ''  }}
+                                                {{ $order->status->status_name == 'Returned' ? 'returned' : ''  }}
+                                                {{ $order->status->status_name == 'ODZ' ? 'odz' : ''  }}
+                                                {{ $order->status->status_name == 'RTS' ? 'rts' : ''  }}
+                                                {{ $order->status->status_name == 'Detained' ? 'detained' : ''  }}
+                                                ">{{ $order->status->status_name }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
                                                 <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>

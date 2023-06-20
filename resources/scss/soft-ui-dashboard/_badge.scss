@@ -5,4 +5,38 @@
 }
 .badge {
   text-transform: uppercase;
+
+  &.delivered {
+    background-color: #32CD32;
+  }
+  &.on-delivery {
+    background-color: #FFA500;
+  }
+  &.in-transit {
+    background-color: #1E90FF;
+  }
+  &.incomplete {
+    background-color: #FF0000;
+  }
+  &.picked-up {
+    background-color: #FFD700;
+  }
+  &.problematic {
+    background-color: #FF4500;
+  }
+  &.reserved {
+    background-color: #8A2BE2;
+  }
+  &.returned {
+    background-color: #FF1493;
+  }
+  &.odz {
+    background-color: #808080;
+  }
+  &.rts {
+    background-color: #B22222;
+  }
+  &.detained {
+    background-color: #8B008B;
+  }
 }

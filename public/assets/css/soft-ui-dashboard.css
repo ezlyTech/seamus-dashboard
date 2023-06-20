@@ -19146,6 +19146,39 @@ textarea.form-control-lg {
 .badge {
   text-transform: uppercase;
 }
+.badge.delivered {
+  background-color: #32CD32;
+}
+.badge.on-delivery {
+  background-color: #FFA500;
+}
+.badge.in-transit {
+  background-color: #1E90FF;
+}
+.badge.incomplete {
+  background-color: #FF0000;
+}
+.badge.picked-up {
+  background-color: #FFD700;
+}
+.badge.problematic {
+  background-color: #FF4500;
+}
+.badge.reserved {
+  background-color: #8A2BE2;
+}
+.badge.returned {
+  background-color: #FF1493;
+}
+.badge.odz {
+  background-color: #808080;
+}
+.badge.rts {
+  background-color: #B22222;
+}
+.badge.detained {
+  background-color: #8B008B;
+}
 
 .btn {
   margin-bottom: 1rem;
