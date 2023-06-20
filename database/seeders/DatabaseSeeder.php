@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('secret')
         ]);
 
-        Sales::factory(50)->create();
+        Sales::factory(2)->create();
     }
 }

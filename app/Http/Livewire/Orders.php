@@ -42,7 +42,7 @@ class Orders extends Component
     $call_text_status,
     $shipper,
     $courier,
-    $status,
+    $status_id,
     $tracking_number,
     $pos,
     $rts_tracking_number,
@@ -76,7 +76,7 @@ class Orders extends Component
             'call_text_status' => 'required',
             'shipper' => 'required',
             'courier' => 'required',
-            'status' => 'required',
+            'status_id' => 'required',
             'tracking_number' => 'required',
             'pos' => 'required',
             'rts_tracking_number' => 'required',
@@ -111,7 +111,7 @@ class Orders extends Component
         $this->call_text_status = '';
         $this->shipper = '';
         $this->courier = '';
-        $this->status = '';
+        $this->status_id = '';
         $this->tracking_number = '';
         $this->pos = '';
         $this->rts_tracking_number = '';
@@ -148,7 +148,7 @@ class Orders extends Component
             'call_text_status' => 'required',
             'shipper' => 'required',
             'courier' => 'required',
-            'status' => 'required',
+            'status_id' => 'required',
             'tracking_number' => 'required',
             'pos' => 'required',
             'rts_tracking_number' => 'required',
@@ -176,7 +176,7 @@ class Orders extends Component
         $sales->call_text_status = $this->call_text_status;
         $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
-        $sales->status = $this->status;
+        $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
@@ -220,7 +220,7 @@ class Orders extends Component
         $this->call_text_status = $sales->call_text_status;
         $this->shipper = $sales->shipper;
         $this->courier = $sales->courier;
-        $this->status = $sales->status;
+        $this->status_id = $sales->status_id;
         $this->tracking_number = $sales->tracking_number;
         $this->pos = $sales->pos;
         $this->rts_tracking_number = $sales->rts_tracking_number;
@@ -249,7 +249,7 @@ class Orders extends Component
             'call_text_status' => 'required',
             'shipper' => 'required',
             'courier' => 'required',
-            'status' => 'required',
+            'status_id' => 'required',
             'tracking_number' => 'required',
             'pos' => 'required',
             'rts_tracking_number' => 'required',
@@ -277,7 +277,7 @@ class Orders extends Component
         $sales->call_text_status = $this->call_text_status;
         $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
-        $sales->status = $this->status;
+        $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
@@ -332,7 +332,7 @@ class Orders extends Component
         return view('livewire.orders', [
             'statuses'=>Status::orderBy('status_name', 'asc')->get(),
             'orders'=>Sales::when($this->byStatus, function($query) {
-                                $query->where('status', $this->byStatus);
+                                $query->where('status_id', $this->byStatus);
                             })
                             ->search(trim($this->search))
                             ->orderBy($this->orderBy, $this->sortBy)

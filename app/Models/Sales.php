@@ -18,4 +18,8 @@ class Sales extends Model
                   ->orWhere('csr_name', 'like', $term);
         });
     }
+
+    public function status() {
+        return $this->belongsTo(Status::class, 'status_id', 'id');
+    }
 }

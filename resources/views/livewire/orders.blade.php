@@ -138,7 +138,7 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">{{ $order->status }}</span>
+                                                <span class="badge badge-sm bg-gradient-success">{{ $order->status->status_name }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
                                                 <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
@@ -287,7 +287,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
-                                        <select class="form-control">
+                                        <select class="form-control" wire:model="status">
                                             <option value="">Select Status</option>
                                             @foreach ($statuses as $status)
                                                 <option value="{{ $status->id }}">{{ $status->status_name }}</option>
