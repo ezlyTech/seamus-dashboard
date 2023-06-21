@@ -5,55 +5,60 @@
             <div class="row">
                 <div class="col-12">
                     <form action="" method="GET" style="width: 100%">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label for="">From</label>
-                                <input wire:model="from" type="date" class="form-control">
+                        <div style="display:flex; justify-content:space-between;" class="flex-wrap">
+                            <div style="width:fit-content" class="d-flex flex-wrap">
+                                <div class="mx-2">
+                                    <label for="">From</label>
+                                    <input wire:model="from" type="date" class="form-control">
+                                </div>
+                                <div class="mx-2">
+                                    <label for="">To</label>
+                                    <input wire:model="to" type="date" class="form-control">
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="">To</label>
-                                <input wire:model="to" type="date" class="form-control">
+                            <div class="d-flex flex-wrap">
+                                <div class="mx-2" style="width:152px;">
+                                    <label for="">Status</label>
+                                    <select wire:model="byStatus" class="form-select">
+                                        <option value="">Select Status</option>
+                                        @foreach ($statuses as $status)
+                                            <option value="{{ $status->id }}">{{ $status->status_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mx-2" style="width:152px;">
+                                    <label for="">Call & Text Status</label>
+                                    <select wire:model="byCTS" class="form-select">
+                                        <option value="">Select Status</option>
+                                        @foreach ($calltextstatus as $cts)
+                                            <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mx-2" style="width:152px;">
+                                    <label for="">Courier</label>
+                                    <select wire:model="byCourier" class="form-select">
+                                        <option value="">Select Courier</option>
+                                        @foreach ($couriers as $courier)
+                                            <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mx-2" style="width:152px;">
+                                    <label for="">Order By</label>
+                                    <select class="form-select" wire:model="orderBy">
+                                        <option value="page_name">Page Name</option>
+                                        <option value="csr_name">CSR Name</option>
+                                        <option value="customer_name">Customer Name</option>
+                                        <option value="address_landmark">Address Landmark</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                <label for="">Status</label>
-                                <select wire:model="byStatus" class="form-select">
-                                    <option value="">Select Status</option>
-                                    @foreach ($statuses as $status)
-                                        <option value="{{ $status->id }}">{{ $status->status_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="">Call & Text Status</label>
-                                <select wire:model="byCTS" class="form-select">
-                                    <option value="">Select Status</option>
-                                    @foreach ($calltextstatus as $cts)
-                                        <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="">Courier</label>
-                                <select wire:model="byCourier" class="form-select">
-                                    <option value="">Select Courier</option>
-                                    @foreach ($couriers as $courier)
-                                        <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="">Order By</label>
-                                <select class="form-select" wire:model="orderBy">
-                                    <option value="page_name">Page Name</option>
-                                    <option value="csr_name">CSR Name</option>
-                                    <option value="customer_name">Customer Name</option>
-                                    <option value="address_landmark">Address Landmark</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
+                        </div>
+                        <div class="row d-flex mt-2 justify-content-end">
+                            <div class="col-md-3">
                                 <label for="">Search</label>
-                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Type to search...">
+                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Search for Number, Customer Name, or Tracking #">
                             </div>
                         </div>
                     </form>

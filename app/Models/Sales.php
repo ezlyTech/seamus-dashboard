@@ -25,8 +25,9 @@ class Sales extends Model
     public function scopeSearch($query, $term) {
         $term = "%$term%";
         $query->where(function($query) use ($term) {
-            $query->where('page_name', 'like', $term)
-                  ->orWhere('csr_name', 'like', $term);
+            $query->where('number', 'like', $term)
+                  ->orWhere('customer_name', 'like', $term)
+                  ->orWhere('tracking_number', 'like', $term);
         });
     }
 
