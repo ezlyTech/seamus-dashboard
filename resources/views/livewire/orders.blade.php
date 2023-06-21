@@ -71,12 +71,15 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address Landmark</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Main Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 1</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 2</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 3</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 4</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 3</th> --}}
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 4</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upseller</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upsell Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
@@ -84,13 +87,10 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Final Price</th>
                                     {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shipper</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Courier</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
                                     {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th> --}}
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
                                 </tr>
                             </thead>
@@ -114,7 +114,28 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->customer_name }}</span>
                                             </td>
                                             <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
+                                            </td>
+                                            <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->address_landmark }}</span>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <span class="badge badge-sm 
+                                                {{ $order->status->status_name == 'Delivered' ? 'delivered' : ''  }}
+                                                {{ $order->status->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
+                                                {{ $order->status->status_name == 'In-Transit' ? 'in-transit' : ''  }}
+                                                {{ $order->status->status_name == 'Incomplete' ? 'incomplete' : ''  }}
+                                                {{ $order->status->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
+                                                {{ $order->status->status_name == 'Problematic' ? 'problematic' : ''  }}
+                                                {{ $order->status->status_name == 'Reserved' ? 'reserved' : ''  }}
+                                                {{ $order->status->status_name == 'Returned' ? 'returned' : ''  }}
+                                                {{ $order->status->status_name == 'ODZ' ? 'odz' : ''  }}
+                                                {{ $order->status->status_name == 'RTS' ? 'rts' : ''  }}
+                                                {{ $order->status->status_name == 'Detained' ? 'detained' : ''  }}
+                                                ">{{ $order->status->status_name }}</span>
+                                            </td>
+                                            <td class="align-middle text-sm">
+                                                <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->main_item }}</span>
@@ -125,12 +146,12 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_2 }}</span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_3 }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_4 }}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upseller }}</span>
                                             </td>
@@ -152,27 +173,6 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier }}</span>
                                             </td>
-                                            <td class="align-middle text-sm">
-                                                <span class="badge badge-sm 
-                                                {{ $order->status->status_name == 'Delivered' ? 'delivered' : ''  }}
-                                                {{ $order->status->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
-                                                {{ $order->status->status_name == 'In-Transit' ? 'in-transit' : ''  }}
-                                                {{ $order->status->status_name == 'Incomplete' ? 'incomplete' : ''  }}
-                                                {{ $order->status->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
-                                                {{ $order->status->status_name == 'Problematic' ? 'problematic' : ''  }}
-                                                {{ $order->status->status_name == 'Reserved' ? 'reserved' : ''  }}
-                                                {{ $order->status->status_name == 'Returned' ? 'returned' : ''  }}
-                                                {{ $order->status->status_name == 'ODZ' ? 'odz' : ''  }}
-                                                {{ $order->status->status_name == 'RTS' ? 'rts' : ''  }}
-                                                {{ $order->status->status_name == 'Detained' ? 'detained' : ''  }}
-                                                ">{{ $order->status->status_name }}</span>
-                                            </td>
-                                            <td class="align-middle text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
-                                            </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->tracking_number }}</span>
                                             </td>
@@ -182,9 +182,9 @@
                                             {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->pos }}</span>
                                             </td> --}}
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->notes }}</span>
-                                            </td>
+                                            </td> --}}
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
                                                 <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
