@@ -44,11 +44,11 @@ class Orders extends Component
     $final_price,
     $notes,
     $call_text_status,
-    $shipper,
+    // $shipper,
     $courier,
     $status_id,
     $tracking_number,
-    $pos,
+    // $pos,
     $rts_tracking_number,
     $order_edit_id, 
     $order_delete_id;
@@ -78,11 +78,11 @@ class Orders extends Component
             'final_price' => 'required',
             'notes' => 'required',
             'call_text_status' => 'required',
-            'shipper' => 'required',
+            // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            'pos' => 'required',
+            // 'pos' => 'required',
             'rts_tracking_number' => 'required',
         ]);
     }
@@ -113,11 +113,11 @@ class Orders extends Component
         $this->final_price = '';
         $this->notes = '';
         $this->call_text_status = '';
-        $this->shipper = '';
+        // $this->shipper = '';
         $this->courier = '';
         $this->status_id = '';
         $this->tracking_number = '';
-        $this->pos = '';
+        // $this->pos = '';
         $this->rts_tracking_number = '';
     }
 
@@ -150,11 +150,11 @@ class Orders extends Component
             'final_price' => 'required',
             'notes' => 'required',
             'call_text_status' => 'required',
-            'shipper' => 'required',
+            // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            'pos' => 'required',
+            // 'pos' => 'required',
             'rts_tracking_number' => 'required',
         ]);
 
@@ -178,11 +178,11 @@ class Orders extends Component
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
         $sales->call_text_status = $this->call_text_status;
-        $sales->shipper = $this->shipper;
+        // $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
-        $sales->pos = $this->pos;
+        // $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
 
         $sales->save();
@@ -222,11 +222,11 @@ class Orders extends Component
         $this->final_price = $sales->final_price;
         $this->notes = $sales->notes;
         $this->call_text_status = $sales->call_text_status;
-        $this->shipper = $sales->shipper;
+        // $this->shipper = $sales->shipper;
         $this->courier = $sales->courier;
         $this->status_id = $sales->status_id;
         $this->tracking_number = $sales->tracking_number;
-        $this->pos = $sales->pos;
+        // $this->pos = $sales->pos;
         $this->rts_tracking_number = $sales->rts_tracking_number;
     }
 
@@ -251,11 +251,11 @@ class Orders extends Component
             'final_price' => 'required',
             'notes' => 'required',
             'call_text_status' => 'required',
-            'shipper' => 'required',
+            // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            'pos' => 'required',
+            // 'pos' => 'required',
             'rts_tracking_number' => 'required',
         ]);
 
@@ -279,11 +279,11 @@ class Orders extends Component
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
         $sales->call_text_status = $this->call_text_status;
-        $sales->shipper = $this->shipper;
+        // $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
-        $sales->pos = $this->pos;
+        // $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
 
         $sales->save();

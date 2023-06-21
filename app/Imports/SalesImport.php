@@ -34,11 +34,11 @@ class SalesImport implements ToModel,WithHeadingRow
             'final_price' => $row['final_price'],
             'notes' => $row['notes'],
             'call_text_status' => $row['call_text_status'],
-            'shipper' => $row['shipper'],
+            // 'shipper' => $row['shipper'],
             'courier' => $row['courier'],
             'status_id' => $row['status_id'],
             'tracking_number' => $row['tracking_number'],
-            'pos' => $row['pos'],
+            // 'pos' => $row['pos'],
             'rts_tracking_number' => $row['rts_tracking_number']
         ]);
     }

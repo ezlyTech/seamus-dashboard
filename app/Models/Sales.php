@@ -18,8 +18,8 @@ class Sales extends Model
         'sku_3', 'sku_4', 'upseller', 
         'upsell_item', 'price', 'upsell_price', 
         'final_price', 'notes', 'call_text_status', 
-        'shipper', 'courier', 'status_id', 
-        'tracking_number', 'pos', 'rts_tracking_number'
+        'courier', 'status_id', 
+        'tracking_number', 'rts_tracking_number'
     ];
 
     public function scopeSearch($query, $term) {

@@ -82,14 +82,14 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upsell Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Final Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shipper</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shipper</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Courier</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
                                 </tr>
@@ -146,9 +146,9 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->final_price }}</span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->shipper }}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier }}</span>
                                             </td>
@@ -179,9 +179,9 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->rts_tracking_number }}</span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->pos }}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->notes }}</span>
                                             </td>
@@ -302,7 +302,7 @@
                                       @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="shipper" class="form-control-label">Shipper</label>
                                         <input class="form-control" type="text" id="shipper" wire:model="shipper">
@@ -310,7 +310,7 @@
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
@@ -383,7 +383,7 @@
                                     @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="pos" class="form-control-label">POS</label>
                                         <input class="form-control" type="text" id="pos" wire:model="pos">
@@ -391,7 +391,7 @@
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tracking_number" class="form-control-label">Tracking #</label>
@@ -563,7 +563,7 @@
                                       @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="shipper" class="form-control-label">Shipper</label>
                                         <input class="form-control" type="text" id="shipper" wire:model="shipper">
@@ -571,7 +571,7 @@
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
@@ -644,7 +644,7 @@
                                     @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="pos" class="form-control-label">POS</label>
                                         <input class="form-control" type="text" id="pos" wire:model="pos">
@@ -652,7 +652,7 @@
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tracking_number" class="form-control-label">Tracking #</label>
