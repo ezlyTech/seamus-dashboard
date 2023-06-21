@@ -34,6 +34,15 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
+                                <label for="">Courier</label>
+                                <select wire:model="byCourier" class="form-select">
+                                    <option value="">Select Courier</option>
+                                    @foreach ($couriers as $courier)
+                                        <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-2">
                                 <label for="">Order By</label>
                                 <select class="form-select" wire:model="orderBy">
                                     <option value="page_name">Page Name</option>
@@ -42,7 +51,7 @@
                                     <option value="address_landmark">Address Landmark</option>
                                 </select>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <label for="">Search</label>
                                 <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Type to search...">
                             </div>
@@ -181,7 +190,7 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->shipper }}</span>
                                             </td> --}}
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->courier }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->courier->courier_name }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->tracking_number }}</span>
@@ -357,9 +366,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="courier" class="form-control-label">Courier</label>
-                                        <input class="form-control" type="text" id="courier" wire:model="courier">
-                                        @error('courier')
+                                        <label for="courier_id" class="form-control-label">Courier</label>
+                                        <input class="form-control" type="text" id="courier_id" wire:model="courier_id">
+                                        @error('courier_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -618,9 +627,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="courier" class="form-control-label">Courier</label>
-                                        <input class="form-control" type="text" id="courier" wire:model="courier">
-                                        @error('courier')
+                                        <label for="courier_id" class="form-control-label">Courier</label>
+                                        <input class="form-control" type="text" id="courier_id" wire:model="courier_id">
+                                        @error('courier_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>

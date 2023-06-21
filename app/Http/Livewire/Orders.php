@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\Sales;
 use App\Models\Status;
 use App\Models\CallTextStatus;
+use App\Models\Courier;
 
 use Carbon\Carbon;
 
@@ -19,6 +20,7 @@ class Orders extends Component
 
     public $byStatus = null;
     public $byCTS = null;
+    public $byCourier = null;
     public $perPage = 15;
     public $orderBy = 'page_name';
     public $sortBy = 'asc';
@@ -47,7 +49,7 @@ class Orders extends Component
     $notes,
     $cts_id,
     // $shipper,
-    $courier,
+    $courier_id,
     $status_id,
     $tracking_number,
     // $pos,
@@ -81,7 +83,7 @@ class Orders extends Component
             'notes' => 'required',
             'cts_id' => 'required',
             // 'shipper' => 'required',
-            'courier' => 'required',
+            'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
             // 'pos' => 'required',
@@ -116,7 +118,7 @@ class Orders extends Component
         $this->notes = '';
         $this->cts_id = '';
         // $this->shipper = '';
-        $this->courier = '';
+        $this->courier_id = '';
         $this->status_id = '';
         $this->tracking_number = '';
         // $this->pos = '';
@@ -153,7 +155,7 @@ class Orders extends Component
             'notes' => 'required',
             'cts_id' => 'required',
             // 'shipper' => 'required',
-            'courier' => 'required',
+            'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
             // 'pos' => 'required',
@@ -181,7 +183,7 @@ class Orders extends Component
         $sales->notes = $this->notes;
         $sales->cts_id = $this->cts_id;
         // $sales->shipper = $this->shipper;
-        $sales->courier = $this->courier;
+        $sales->courier_id = $this->courier_id;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         // $sales->pos = $this->pos;
@@ -225,7 +227,7 @@ class Orders extends Component
         $this->notes = $sales->notes;
         $this->cts_id = $sales->cts_id;
         // $this->shipper = $sales->shipper;
-        $this->courier = $sales->courier;
+        $this->courier_id = $sales->courier_id;
         $this->status_id = $sales->status_id;
         $this->tracking_number = $sales->tracking_number;
         // $this->pos = $sales->pos;
@@ -254,7 +256,7 @@ class Orders extends Component
             'notes' => 'required',
             'cts_id' => 'required',
             // 'shipper' => 'required',
-            'courier' => 'required',
+            'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
             // 'pos' => 'required',
@@ -282,7 +284,7 @@ class Orders extends Component
         $sales->notes = $this->notes;
         $sales->cts_id = $this->cts_id;
         // $sales->shipper = $this->shipper;
-        $sales->courier = $this->courier;
+        $sales->courier_id = $this->courier_id;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         // $sales->pos = $this->pos;
@@ -336,12 +338,16 @@ class Orders extends Component
     {
         return view('livewire.orders', [
             'statuses'=>Status::orderBy('status_name', 'asc')->get(),
+            'couriers'=>Courier::orderBy('courier_name', 'asc')->get(),
             'calltextstatus'=>CallTextStatus::orderBy('cts_name', 'asc')->get(),
             'orders'=>Sales::when($this->byStatus, function($query) {
                                 $query->where('status_id', $this->byStatus);
                             })
                             ->when($this->byCTS, function($query) {
                                 $query->where('cts_id', $this->byCTS);
+                            })
+                            ->when($this->byCourier, function($query) {
+                                $query->where('courier_id', $this->byCourier);
                             })
                             ->when($this->from, function($query) {
                                 $query->where('sales_date', '>=', Carbon::parse($this->from)->startOfDay());

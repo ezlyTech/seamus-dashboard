@@ -32,8 +32,8 @@ return new class extends Migration
             $table->longText('notes')->nullable();
             $table->string('cts_id');
             // $table->string('shipper');
-            $table->string('courier');
-            $table->string('status');
+            $table->string('courier_id');
+            $table->string('status_id');
             $table->string('tracking_number');
             // $table->string('pos');
             $table->string('rts_tracking_number');

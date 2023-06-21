@@ -35,7 +35,7 @@ class SalesImport implements ToModel,WithHeadingRow
             'notes' => $row['notes'],
             'cts_id' => $row['cts_id'],
             // 'shipper' => $row['shipper'],
-            'courier' => $row['courier'],
+            'courier_id' => $row['courier_id'],
             'status_id' => $row['status_id'],
             'tracking_number' => $row['tracking_number'],
             // 'pos' => $row['pos'],

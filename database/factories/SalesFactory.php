@@ -36,7 +36,7 @@ class SalesFactory extends Factory
             'notes' => $this->faker->paragraph(3),
             'cts_id' => $this->faker->sentence(),
             'shipper' => $this->faker->sentence(),
-            'courier' => $this->faker->sentence(),
+            'courier_id' => $this->faker->sentence(),
             'status' => $this->faker->sentence(),
             'tracking_number' => $this->faker->randomDigit(),
             'pos' => $this->faker->sentence(),
