@@ -84,31 +84,26 @@
                         <table class="table align-items-center mb-0 table-striped table-hover" style="border-collapse: collapse">
                             <thead class="position-relative">
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sales Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Page</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address Landmark</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Call & Text Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Main Item</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 1</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 2</th>
-                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 3</th> --}}
-                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SKU 4</th> --}}
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upseller</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upsell Item</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Upsell Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Final Price</th>
-                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Shipper</th> --}}
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Courier</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tracking Number</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RTS Tracking Number</th>
-                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">POS</th> --}}
-                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Notes</th> --}}
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">ID</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Sales Date</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Page</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">CSR Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Customer Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Number</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Address Landmark</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Call & Text  <br> Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Main Item</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 1</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 2</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upseller</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upsell Item</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Upsell Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Final Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Courier</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Tracking Number</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">RTS Tracking Number</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
                                 </tr>
                             </thead>
@@ -165,30 +160,21 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_2 }}</span>
                                             </td>
-                                            {{-- <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_3 }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_4 }}</span>
-                                            </td> --}}
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upseller }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_item }}</span>
                                             </td>
-                                            <td>
+                                            <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->price }}</span>
                                             </td>
-                                            <td>
+                                            <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_price }}</span>
                                             </td>
-                                            <td>
+                                            <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->final_price }}</span>
                                             </td>
-                                            {{-- <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->shipper }}</span>
-                                            </td> --}}
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier->courier_name }}</span>
                                             </td>
@@ -198,12 +184,6 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->rts_tracking_number }}</span>
                                             </td>
-                                            {{-- <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->pos }}</span>
-                                            </td> --}}
-                                            {{-- <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->notes }}</span>
-                                            </td> --}}
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
                                                 <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
@@ -266,7 +246,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="page_name" class="form-control-label">Page</label>
-                                    <input class="form-control" type="text" id="page_name" wire:model="page_name">
+                                    <input class="form-control" type="text" id="page_name" wire:model="page_name" placeholder="Type page name here">
                                     @error('page_name')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
@@ -275,7 +255,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="number" class="form-control-label">Number</label>
-                                    <input class="form-control" type="number" id="number" wire:model="number">
+                                    <input class="form-control" type="number" id="number" wire:model="number" placeholder="+63-">
                                     @error('number')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
@@ -286,7 +266,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="csr_name" class="form-control-label">CSR Name</label>
-                                    <input class="form-control" type="text" id="csr_name" wire:model="csr_name">
+                                    <input class="form-control" type="text" id="csr_name" wire:model="csr_name" placeholder="Type CSR name here">
                                     @error('csr_name')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
@@ -295,7 +275,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="address_landmark" class="form-control-label">Address Landmark</label>
-                                    <input class="form-control" type="text" id="address_landmark" wire:model="address_landmark">
+                                    <input class="form-control" type="text" id="address_landmark" wire:model="address_landmark" placeholder="Purok/Street, Barangay, City, Province">
                                     @error('address_landmark')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
@@ -306,7 +286,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="main_item" class="form-control-label">Main Item</label>
-                                        <input class="form-control" type="text" id="main_item" wire:model="main_item">
+                                        <input class="form-control" type="text" id="main_item" wire:model="main_item" placeholder="Eg. Money Coin Ring">
                                         @error('main_item')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
@@ -315,21 +295,12 @@
                                 <div class="col-md-3">
                                   <div class="form-group">
                                       <label for="upseller" class="form-control-label">Upseller</label>
-                                      <input class="form-control" type="text" id="upseller" wire:model="upseller">
+                                      <input class="form-control" type="text" id="upseller" wire:model="upseller" placeholder="Type upseller here">
                                       @error('upseller')
                                           <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                       @enderror
                                   </div>
                                 </div>
-                                {{-- <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="shipper" class="form-control-label">Shipper</label>
-                                        <input class="form-control" type="text" id="shipper" wire:model="shipper">
-                                        @error('shipper')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="status" class="form-control-label">Status</label>
@@ -339,36 +310,7 @@
                                                 <option value="{{ $status->id }}">{{ $status->status_name }}</option>
                                             @endforeach
                                         </select>
-                                        @error('status')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="sku_1" class="form-control-label">SKU 1</label>
-                                        <input class="form-control" type="number" id="sku_1" wire:model="sku_1">
-                                        @error('sku_1')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="form-group">
-                                      <label for="upsell_item" class="form-control-label">Upsell Item</label>
-                                      <input class="form-control" type="text" id="upsell_item" wire:model="upsell_item">
-                                      @error('upsell_item')
-                                          <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                      @enderror
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="courier_id" class="form-control-label">Courier</label>
-                                        <input class="form-control" type="text" id="courier_id" wire:model="courier_id">
-                                        @error('courier_id')
+                                        @error('status_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -376,7 +318,12 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="cts_id" class="form-control-label">Call & Text Status</label>
-                                        <input class="form-control" type="text" id="cts_id" wire:model="cts_id">
+                                        <select class="form-select" wire:model="cts_id">
+                                            <option value="">Select Courier</option>
+                                            @foreach ($calltextstatus as $cts)
+                                                <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('cts_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
@@ -386,65 +333,27 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="sku_2" class="form-control-label">SKU 2</label>
-                                        <input class="form-control" type="number" id="sku_2" wire:model="sku_2">
-                                        @error('sku_2')
+                                        <label for="sku_1" class="form-control-label">SKU 1</label>
+                                        <input class="form-control" type="text" id="sku_1" wire:model="sku_1" placeholder="Eg. MCR 11">
+                                        @error('sku_1')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                   <div class="form-group">
-                                    <label for="price" class="form-control-label">Price</label>
-                                    <input class="form-control" type="number" id="price" wire:model="price">
-                                    @error('price')
-                                        <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                    @enderror
+                                      <label for="upsell_item" class="form-control-label">Upsell Item</label>
+                                      <input class="form-control" type="text" id="upsell_item" wire:model="upsell_item" placeholder="Eg. Old School Vans">
+                                      @error('upsell_item')
+                                          <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                      @enderror
                                   </div>
                                 </div>
-                                {{-- <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="pos" class="form-control-label">POS</label>
-                                        <input class="form-control" type="text" id="pos" wire:model="pos">
-                                        @error('pos')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tracking_number" class="form-control-label">Tracking #</label>
-                                        <input class="form-control" type="number" id="tracking_number" wire:model="tracking_number">
+                                        <input class="form-control" type="text" id="tracking_number" wire:model="tracking_number" placeholder="Eg. P61181P1XRCEA">
                                         @error('tracking_number')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="sku_3" class="form-control-label">SKU 3</label>
-                                        <input class="form-control" type="number" id="sku_3" wire:model="sku_3">
-                                        @error('sku_3')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                  <div class="form-group">
-                                    <label for="upsell_price" class="form-control-label">Upsell Price</label>
-                                    <input class="form-control" type="number" id="upsell_price" wire:model="upsell_price">
-                                    @error('upsell_price')
-                                        <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                    @enderror
-                                  </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="notes" class="form-control-label">Notes</label>
-                                        <input class="form-control" type="text" id="notes" wire:model="notes">
-                                        @error('notes')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -452,7 +361,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="rts_tracking_number" class="form-control-label">RTS Tracking #</label>
-                                        <input class="form-control" type="number" id="rts_tracking_number" wire:model="rts_tracking_number">
+                                        <input class="form-control" type="text" id="rts_tracking_number" wire:model="rts_tracking_number" placeholder="Eg. P61181P1XRCEA">
                                         @error('rts_tracking_number')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
@@ -462,8 +371,71 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
+                                        <label for="sku_2" class="form-control-label">SKU 2</label>
+                                        <input class="form-control" type="text" id="sku_2" wire:model="sku_2" placeholder="Eg. MCE 8">
+                                        @error('sku_2')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="price" class="form-control-label">Price</label>
+                                    <input class="form-control" type="number" id="price" wire:model="price" placeholder="₱ 0.00">
+                                    @error('price')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="courier_id" class="form-control-label">Courier</label>
+                                        <select class="form-select" wire:model="courier_id">
+                                            <option value="">Select Courier</option>
+                                            @foreach ($couriers as $courier)
+                                                <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('courier_id')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="sku_3" class="form-control-label">SKU 3</label>
+                                        <input class="form-control" type="text" id="sku_3" wire:model="sku_3" placeholder="Eg. MCC 2">
+                                        @error('sku_3')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="upsell_price" class="form-control-label">Upsell Price</label>
+                                    <input class="form-control" type="number" id="upsell_price" wire:model="upsell_price" placeholder="₱ 0.00">
+                                    @error('upsell_price')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="notes" class="form-control-label">Notes</label>
+                                        <input class="form-control" type="text" id="notes" wire:model="notes" placeholder="Eg. No landmark">
+                                        @error('notes')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
                                         <label for="sku_4" class="form-control-label">SKU 4</label>
-                                        <input class="form-control" type="number" id="sku_4" wire:model="sku_4">
+                                        <input class="form-control" type="text" id="sku_4" wire:model="sku_4" placeholder="Eg. MCD 10">
                                         @error('sku_4')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
@@ -472,7 +444,7 @@
                                 <div class="col-md-3">
                                   <div class="form-group">
                                     <label for="final_price" class="form-control-label">Final Price</label>
-                                    <input class="form-control" type="number" id="final_price" wire:model="final_price">
+                                    <input class="form-control" type="number" id="final_price" wire:model="final_price" placeholder="₱ 0.00">
                                     @error('final_price')
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
@@ -481,8 +453,8 @@
                             </div>
             
                             <div class="modal-footer">
-                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
-                                <button type="submit" class="btn bg-gradient-primary">Save changes</button>
+                                <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
+                                <button type="submit" class="btn bg-primary text-white">Save changes</button>
                             </div>
                         </form>
                     </div>
