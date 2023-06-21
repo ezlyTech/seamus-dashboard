@@ -6,7 +6,7 @@
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
                             <div class="col-md-6 d-flex align-items-center">
-                                <h6 class="mb-0">Statuses</h6>
+                                <h6 class="mb-0">Status</h6>
                             </div>
                             <div class="">
                                 <button class="btn btn-outline-primary btn-sm mb-0">Add New</button>

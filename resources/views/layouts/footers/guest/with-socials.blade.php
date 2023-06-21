@@ -51,7 +51,7 @@
               <div class="col-8 mx-auto text-center mt-1">
                   <p class="mb-0 text-secondary">
                     © {{ now()->year }} Seamus Digital Trading by <a style="color: #252f40;" href="https://linktr.ee/eleyyz" class="font-weight-bold ml-1"
-                        target="_blank">EZLY</a>
+                        target="_blank">GROUP 3</a>
               </div>
               </p>
           </div>

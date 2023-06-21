@@ -4,7 +4,7 @@
             <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="copyright text-center text-sm text-muted text-lg-left">
                     © {{ now()->year }} Seamus Digital Trading by <a style="color: #252f40;" href="https://linktr.ee/eleyyz" class="font-weight-bold ml-1"
-                        target="_blank">EZLY</a>
+                        target="_blank">GROUP 3</a>
                 </div>
             </div>
             {{-- <div class="col-lg-6">
