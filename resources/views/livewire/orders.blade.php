@@ -93,11 +93,11 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Address Landmark</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Call & Text  <br> Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Main Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 1</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 2</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upseller</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upsell Item</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Main Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Upsell Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Final Price</th>
@@ -152,9 +152,6 @@
                                                 ">{{ $order->calltextstatus->cts_name }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->main_item }}</span>
-                                            </td>
-                                            <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_1 }}</span>
                                             </td>
                                             <td>
@@ -165,6 +162,9 @@
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_item }}</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->main_item }}</span>
                                             </td>
                                             <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->price }}</span>
