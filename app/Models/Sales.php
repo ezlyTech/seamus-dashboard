@@ -17,7 +17,7 @@ class Sales extends Model
         'main_item', 'sku_1', 'sku_2', 
         'sku_3', 'sku_4', 'upseller', 
         'upsell_item', 'price', 'upsell_price', 
-        'final_price', 'notes', 'call_text_status', 
+        'final_price', 'notes', 'cts_id', 
         'courier', 'status_id', 
         'tracking_number', 'rts_tracking_number'
     ];
@@ -32,5 +32,9 @@ class Sales extends Model
 
     public function status() {
         return $this->belongsTo(Status::class, 'status_id', 'id');
+    }
+
+    public function calltextstatus() {
+        return $this->belongsTo(CallTextStatus::class, 'cts_id', 'id');
     }
 }

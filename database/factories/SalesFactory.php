@@ -34,7 +34,7 @@ class SalesFactory extends Factory
             'upsell_price' => $this->faker->randomDigit(),
             'final_price' => $this->faker->randomDigit(),
             'notes' => $this->faker->paragraph(3),
-            'call_text_status' => $this->faker->sentence(),
+            'cts_id' => $this->faker->sentence(),
             'shipper' => $this->faker->sentence(),
             'courier' => $this->faker->sentence(),
             'status' => $this->faker->sentence(),

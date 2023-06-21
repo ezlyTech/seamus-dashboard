@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Sales;
 use App\Models\Status;
+use App\Models\CallTextStatus;
 
 use Carbon\Carbon;
 
@@ -17,6 +18,7 @@ class Orders extends Component
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public $byStatus = null;
+    public $byCTS = null;
     public $perPage = 15;
     public $orderBy = 'page_name';
     public $sortBy = 'asc';
@@ -43,7 +45,7 @@ class Orders extends Component
     $upsell_price,
     $final_price,
     $notes,
-    $call_text_status,
+    $cts_id,
     // $shipper,
     $courier,
     $status_id,
@@ -77,7 +79,7 @@ class Orders extends Component
             'upsell_price' => 'required',
             'final_price' => 'required',
             'notes' => 'required',
-            'call_text_status' => 'required',
+            'cts_id' => 'required',
             // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
@@ -112,7 +114,7 @@ class Orders extends Component
         $this->upsell_price = '';
         $this->final_price = '';
         $this->notes = '';
-        $this->call_text_status = '';
+        $this->cts_id = '';
         // $this->shipper = '';
         $this->courier = '';
         $this->status_id = '';
@@ -149,7 +151,7 @@ class Orders extends Component
             'upsell_price' => 'required',
             'final_price' => 'required',
             'notes' => 'required',
-            'call_text_status' => 'required',
+            'cts_id' => 'required',
             // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
@@ -177,7 +179,7 @@ class Orders extends Component
         $sales->upsell_price = $this->upsell_price;
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
-        $sales->call_text_status = $this->call_text_status;
+        $sales->cts_id = $this->cts_id;
         // $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
         $sales->status_id = $this->status_id;
@@ -221,7 +223,7 @@ class Orders extends Component
         $this->upsell_price = $sales->upsell_price;
         $this->final_price = $sales->final_price;
         $this->notes = $sales->notes;
-        $this->call_text_status = $sales->call_text_status;
+        $this->cts_id = $sales->cts_id;
         // $this->shipper = $sales->shipper;
         $this->courier = $sales->courier;
         $this->status_id = $sales->status_id;
@@ -250,7 +252,7 @@ class Orders extends Component
             'upsell_price' => 'required',
             'final_price' => 'required',
             'notes' => 'required',
-            'call_text_status' => 'required',
+            'cts_id' => 'required',
             // 'shipper' => 'required',
             'courier' => 'required',
             'status_id' => 'required',
@@ -278,7 +280,7 @@ class Orders extends Component
         $sales->upsell_price = $this->upsell_price;
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
-        $sales->call_text_status = $this->call_text_status;
+        $sales->cts_id = $this->cts_id;
         // $sales->shipper = $this->shipper;
         $sales->courier = $this->courier;
         $sales->status_id = $this->status_id;
@@ -334,8 +336,12 @@ class Orders extends Component
     {
         return view('livewire.orders', [
             'statuses'=>Status::orderBy('status_name', 'asc')->get(),
+            'calltextstatus'=>CallTextStatus::orderBy('cts_name', 'asc')->get(),
             'orders'=>Sales::when($this->byStatus, function($query) {
                                 $query->where('status_id', $this->byStatus);
+                            })
+                            ->when($this->byCTS, function($query) {
+                                $query->where('cts_id', $this->byCTS);
                             })
                             ->when($this->from, function($query) {
                                 $query->where('sales_date', '>=', Carbon::parse($this->from)->startOfDay());

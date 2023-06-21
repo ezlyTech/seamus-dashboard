@@ -33,7 +33,7 @@ class SalesImport implements ToModel,WithHeadingRow
             'upsell_price' => $row['upsell_price'],
             'final_price' => $row['final_price'],
             'notes' => $row['notes'],
-            'call_text_status' => $row['call_text_status'],
+            'cts_id' => $row['cts_id'],
             // 'shipper' => $row['shipper'],
             'courier' => $row['courier'],
             'status_id' => $row['status_id'],

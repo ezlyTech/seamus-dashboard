@@ -14,7 +14,7 @@
                                 <label for="">To</label>
                                 <input wire:model="to" type="date" class="form-control">
                             </div>
-                            <div class="col-md-2"></div>
+                            <div class="col-md-1"></div>
                             <div class="col-md-2">
                                 <label for="">Status</label>
                                 <select wire:model="byStatus" class="form-select">
@@ -25,8 +25,13 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <label for="">Search</label>
-                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Type to search...">
+                                <label for="">Call & Text Status</label>
+                                <select wire:model="byCTS" class="form-select">
+                                    <option value="">Select Status</option>
+                                    @foreach ($calltextstatus as $cts)
+                                        <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-2">
                                 <label for="">Order By</label>
@@ -36,6 +41,10 @@
                                     <option value="customer_name">Customer Name</option>
                                     <option value="address_landmark">Address Landmark</option>
                                 </select>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="">Search</label>
+                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Type to search...">
                             </div>
                         </div>
                     </form>
@@ -135,7 +144,8 @@
                                                 ">{{ $order->status->status_name }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">{{ $order->call_text_status }}</span>
+                                                <span class="badge badge-sm cts-badge
+                                                ">{{ $order->calltextstatus->cts_name }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->main_item }}</span>
@@ -356,9 +366,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="call_text_status" class="form-control-label">Call & Text Status</label>
-                                        <input class="form-control" type="text" id="call_text_status" wire:model="call_text_status">
-                                        @error('call_text_status')
+                                        <label for="cts_id" class="form-control-label">Call & Text Status</label>
+                                        <input class="form-control" type="text" id="cts_id" wire:model="cts_id">
+                                        @error('cts_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -617,9 +627,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="call_text_status" class="form-control-label">Call & Text Status</label>
-                                        <input class="form-control" type="text" id="call_text_status" wire:model="call_text_status">
-                                        @error('call_text_status')
+                                        <label for="cts_id" class="form-control-label">Call & Text Status</label>
+                                        <input class="form-control" type="text" id="cts_id" wire:model="cts_id">
+                                        @error('cts_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>

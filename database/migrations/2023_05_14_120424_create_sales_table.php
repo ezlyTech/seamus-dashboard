@@ -30,12 +30,12 @@ return new class extends Migration
             $table->decimal('upsell_price');
             $table->decimal('final_price');
             $table->longText('notes')->nullable();
-            $table->string('call_text_status');
-            $table->string('shipper');
+            $table->string('cts_id');
+            // $table->string('shipper');
             $table->string('courier');
             $table->string('status');
             $table->string('tracking_number');
-            $table->string('pos');
+            // $table->string('pos');
             $table->string('rts_tracking_number');
             $table->timestamps();
         });

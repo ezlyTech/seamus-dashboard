@@ -39,4 +39,11 @@
   &.detained {
     background-color: #8B008B;
   }
+
+  &.cts-badge {
+    border: 1px solid #2d4491;
+    color: #2d4491 !important;
+    font-weight: 600;
+    background: #2d44910f;
+  }
 }
