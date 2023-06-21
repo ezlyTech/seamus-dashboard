@@ -1,7 +1,7 @@
 <main class="main-content">
     <div class="container-fluid py-2">
         <div class="row">
-            <div class="col-md-3 mt-4">
+            <div class="col-md-4 mt-4">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
@@ -16,13 +16,13 @@
                     <div class="card-body p-3 pb-0">
                         <ul class="list-group">
                             @foreach ($statuses as $status)
-                                <li class="list-group-item border-0 d-flex p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }}</li>
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }} <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mt-4">
+            <div class="col-md-4 mt-4">
                 <div class="card">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
@@ -36,8 +36,29 @@
                     </div>
                     <div class="card-body p-3 pb-0">
                         <ul class="list-group">
-                            @foreach ($statuses as $status)
-                                <li class="list-group-item border-0 d-flex p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }}</li>
+                            @foreach ($calltextstatus as $cts)
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $cts->cts_name }}  <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-header pb-0 p-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-md-6 d-flex align-items-center">
+                                <h6 class="mb-0">Couriers</h6>
+                            </div>
+                            <div class="">
+                                <button class="btn btn-outline-primary btn-sm mb-0">Add New</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3 pb-0">
+                        <ul class="list-group">
+                            @foreach ($couriers as $courier)
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $courier->courier_name }}  <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
                             @endforeach
                         </ul>
                     </div>

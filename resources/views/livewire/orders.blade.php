@@ -53,14 +53,14 @@
                                         <option value="address_landmark">Address Landmark</option>
                                     </select>
                                 </div>
+                                <div class="mx-2" style="width: 320px;">
+                                    <label for="">Search</label>
+                                    <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Eg. Number, Customer Name, or Tracking #">
+                                </div>
                             </div>
                         </div>
-                        <div class="row d-flex mt-2 justify-content-end">
-                            <div class="col-md-3">
-                                <label for="">Search</label>
-                                <input type="text" class="form-control" wire:model.debounce.350ms="search" placeholder="Search for Number, Customer Name, or Tracking #">
-                            </div>
-                        </div>
+                        {{-- <div class="row d-flex mt-2 justify-content-end">
+                        </div> --}}
                     </form>
                     <hr>
                 </div>
@@ -473,7 +473,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Add New Order</h5>
+                        <h5 class="modal-title" id="editModalLabel">Edit Order</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -736,8 +736,8 @@
                         </div>
         
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn bg-danger" wire:click="deleteOrderData()">Delete</button>
+                            <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn bg-danger text-white" wire:click="deleteOrderData()">Delete</button>
                         </div>
                     </div>
                   </div>
