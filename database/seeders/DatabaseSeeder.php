@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'admin',
-            'email' => 'admin@softui.com',
-            'password' => Hash::make('secret')
+            'email' => 'admin@sdt.com',
+            'password' => Hash::make('admin!sdt09')
         ]);
 
-        Sales::factory(2)->create();
+        // Sales::factory(2)->create();
     }
 }
