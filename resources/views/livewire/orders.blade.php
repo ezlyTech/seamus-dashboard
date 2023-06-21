@@ -191,10 +191,10 @@
                                             </td>
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
-                                                <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})">
+                                                <span class=" font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'" >
                                                     <i class="fa fa-solid fa-pencil"></i>
                                                 </span>
-                                                <span class="text-secondary font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" wire:click="deleteConfirmation({{ $order->id }})">
+                                                <span class=" font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" wire:click="deleteConfirmation({{ $order->id }})" onMouseOver="this.style.color='#ea0606'" onMouseOut="this.style.color='#8392AB'" >
                                                     <i class="fa fa-solid fa-trash"></i>
                                                 </span>
                                             </td>
