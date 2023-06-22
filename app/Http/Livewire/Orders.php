@@ -48,11 +48,9 @@ class Orders extends Component
     $final_price,
     $notes,
     $cts_id,
-    // $shipper,
     $courier_id,
     $status_id,
     $tracking_number,
-    // $pos,
     $rts_tracking_number,
     $order_edit_id, 
     $order_delete_id;
@@ -70,24 +68,22 @@ class Orders extends Component
             'customer_name' => 'required',
             'number' => 'required',
             'address_landmark' => 'required',
-            'main_item' => 'required',
+            'main_item' => '',
             'sku_1' => 'required',
             'sku_2' => 'required',
-            'sku_3' => 'required',
-            'sku_4' => 'required',
-            'upseller' => 'required',
-            'upsell_item' => 'required',
+            'sku_3' => '',
+            'sku_4' => '',
+            'upseller' => '',
+            'upsell_item' => '',
             'price' => 'required',
-            'upsell_price' => 'required',
+            'upsell_price' => '',
             'final_price' => 'required',
-            'notes' => 'required',
+            'notes' => '',
             'cts_id' => 'required',
-            // 'shipper' => 'required',
             'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            // 'pos' => 'required',
-            'rts_tracking_number' => 'required',
+            'rts_tracking_number' => '',
         ]);
     }
 
@@ -117,11 +113,9 @@ class Orders extends Component
         $this->final_price = '';
         $this->notes = '';
         $this->cts_id = '';
-        // $this->shipper = '';
         $this->courier_id = '';
         $this->status_id = '';
         $this->tracking_number = '';
-        // $this->pos = '';
         $this->rts_tracking_number = '';
     }
 
@@ -142,24 +136,22 @@ class Orders extends Component
             'customer_name' => 'required',
             'number' => 'required',
             'address_landmark' => 'required',
-            'main_item' => 'required',
+            'main_item' => '',
             'sku_1' => 'required',
             'sku_2' => 'required',
-            'sku_3' => 'required',
-            'sku_4' => 'required',
-            'upseller' => 'required',
-            'upsell_item' => 'required',
+            'sku_3' => '',
+            'sku_4' => '',
+            'upseller' => '',
+            'upsell_item' => '',
             'price' => 'required',
-            'upsell_price' => 'required',
+            'upsell_price' => '',
             'final_price' => 'required',
-            'notes' => 'required',
+            'notes' => '',
             'cts_id' => 'required',
-            // 'shipper' => 'required',
             'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            // 'pos' => 'required',
-            'rts_tracking_number' => 'required',
+            'rts_tracking_number' => '',
         ]);
 
         // Add order data
@@ -182,11 +174,9 @@ class Orders extends Component
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
         $sales->cts_id = $this->cts_id;
-        // $sales->shipper = $this->shipper;
         $sales->courier_id = $this->courier_id;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
-        // $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
 
         $sales->save();
@@ -226,11 +216,9 @@ class Orders extends Component
         $this->final_price = $sales->final_price;
         $this->notes = $sales->notes;
         $this->cts_id = $sales->cts_id;
-        // $this->shipper = $sales->shipper;
         $this->courier_id = $sales->courier_id;
         $this->status_id = $sales->status_id;
         $this->tracking_number = $sales->tracking_number;
-        // $this->pos = $sales->pos;
         $this->rts_tracking_number = $sales->rts_tracking_number;
     }
 
@@ -243,24 +231,22 @@ class Orders extends Component
             'customer_name' => 'required',
             'number' => 'required',
             'address_landmark' => 'required',
-            'main_item' => 'required',
+            'main_item' => '',
             'sku_1' => 'required',
             'sku_2' => 'required',
-            'sku_3' => 'required',
-            'sku_4' => 'required',
-            'upseller' => 'required',
-            'upsell_item' => 'required',
+            'sku_3' => '',
+            'sku_4' => '',
+            'upseller' => '',
+            'upsell_item' => '',
             'price' => 'required',
-            'upsell_price' => 'required',
+            'upsell_price' => '',
             'final_price' => 'required',
-            'notes' => 'required',
+            'notes' => '',
             'cts_id' => 'required',
-            // 'shipper' => 'required',
             'courier_id' => 'required',
             'status_id' => 'required',
             'tracking_number' => 'required',
-            // 'pos' => 'required',
-            'rts_tracking_number' => 'required',
+            'rts_tracking_number' => '',
         ]);
 
         $sales = Sales::where('id', $this->order_edit_id)->first();
@@ -283,11 +269,9 @@ class Orders extends Component
         $sales->final_price = $this->final_price;
         $sales->notes = $this->notes;
         $sales->cts_id = $this->cts_id;
-        // $sales->shipper = $this->shipper;
         $sales->courier_id = $this->courier_id;
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
-        // $sales->pos = $this->pos;
         $sales->rts_tracking_number = $this->rts_tracking_number;
 
         $sales->save();
