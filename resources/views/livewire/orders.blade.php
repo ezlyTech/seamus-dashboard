@@ -69,6 +69,11 @@
 
             <!-- Table -->
             <div class="row">
+                @if (session()->has('message'))
+                    <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 3000)" class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header pb-0 d-flex justify-content-between align-items-center">
