@@ -24,6 +24,7 @@ use App\Http\Livewire\Shipment;
 
 use App\Http\Livewire\General;
 use App\Http\Livewire\Import;
+use App\Http\Livewire\View;
 
 use Illuminate\Http\Request;
 
@@ -67,5 +68,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/general-settings', General::class)->name('general-settings');
     Route::get('/orders/import', Import::class)->name('import');
     Route::post('/importfile', [Import::class, 'importfile'])->name('import-sales');
+    Route::get('/orders/view', View::class)->name('view');
 });
 
