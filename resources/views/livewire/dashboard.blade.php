@@ -9,7 +9,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
                     <h5 class="font-weight-bolder mb-0">
-                      $53,000
+                      ₱ 53,000
                       <span class="text-success text-sm font-weight-bolder">2218</span>
                     </h5>
                   </div>

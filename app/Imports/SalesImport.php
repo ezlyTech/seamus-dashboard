@@ -17,11 +17,11 @@ class SalesImport implements ToModel,WithHeadingRow
     {
         return new Sales([
             'sales_date' => $row['sales_date'],
-            'page_name' => $row['page_name'],
+            'page_name' => $row['page'],
             'csr_name' => $row['csr_name'],
             'customer_name' => $row['customer_name'],
             'number' => $row['number'],
-            'address_landmark' => $row['address_landmark'],
+            'address_landmark' => $row['address'],
             'main_item' => $row['main_item'],
             'sku_1' => $row['sku_1'],
             'sku_2' => $row['sku_2'],
@@ -33,12 +33,10 @@ class SalesImport implements ToModel,WithHeadingRow
             'upsell_price' => $row['upsell_price'],
             'final_price' => $row['final_price'],
             'notes' => $row['notes'],
-            'cts_id' => $row['cts_id'],
-            // 'shipper' => $row['shipper'],
-            'courier_id' => $row['courier_id'],
-            'status_id' => $row['status_id'],
+            'cts_id' => $row['call_text_status'],
+            'courier_id' => $row['courier'],
+            'status_id' => $row['status'],
             'tracking_number' => $row['tracking_number'],
-            // 'pos' => $row['pos'],
             'rts_tracking_number' => $row['rts_tracking_number']
         ]);
     }
