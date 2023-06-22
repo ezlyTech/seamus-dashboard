@@ -1,5 +1,25 @@
  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
     <div class="container-fluid py-4">
+            <!-- Filters -->
+            <div class="row">
+                <div class="col-12">
+                    <form action="" method="GET" style="width: 100%">
+                        <div style="display:flex; justify-content:space-between;" class="flex-wrap">
+                            <div style="width:fit-content" class="d-flex flex-wrap">
+                                <div class="mx-2">
+                                    <label for="">From</label>
+                                    <input wire:model="from" type="date" class="form-control">
+                                </div>
+                                <div class="mx-2">
+                                    <label for="">To</label>
+                                    <input wire:model="to" type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">

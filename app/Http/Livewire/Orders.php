@@ -290,8 +290,6 @@ class Orders extends Component
      * 
     */
     public function deleteConfirmation($id) {
-        // $sales = Sales::where('id', $id)->first();
-
         $this->order_delete_id = $id;
     }
 
@@ -300,7 +298,7 @@ class Orders extends Component
         $sales->delete();
 
         // Hide modal
-        $this->dispatchBrowserEvent('close-edit-modal');
+        $this->dispatchBrowserEvent('close-delete-modal');
 
         session()->flash('message', 'Record has been deleted successfully!');
 

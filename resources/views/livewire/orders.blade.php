@@ -459,7 +459,7 @@
             
                             <div class="modal-footer">
                                 <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
-                                <button type="submit" class="btn bg-primary text-white">Save changes</button>
+                                <button type="submit" class="btn bg-primary text-white">Save</button>
                             </div>
                         </form>
                     </div>
