@@ -16,7 +16,8 @@ class Import extends Component
     */
     public function importfile(Request $request) {
         Excel::import(new SalesImport, $request->file);
-        return view('livewire.orders');
+        return 'Imported successfully!';
+        
     }
 
 

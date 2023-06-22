@@ -4,7 +4,7 @@
             @csrf
             <div class="form-group">
                 <label for="csv-file">CSV file to import</label>
-                <input type="file" id="csv-file" class="form-control" name="file">
+                <input type="file" id="csv-file" class="form-control" name="file" accept=".csv">
             </div>
             <button type="submit" class="btn btn-primary">Import</button>
         </form>
