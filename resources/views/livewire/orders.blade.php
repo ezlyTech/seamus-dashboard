@@ -105,11 +105,11 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Call & Text  <br> Status</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 1</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">SKU 2</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upseller</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upsell Item</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upseller</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Upsell Item</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Main Item</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Upsell Price</th>
+                                    {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Upsell Price</th> --}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Final Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Courier</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Tracking Number</th>
@@ -128,14 +128,14 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sales_date }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->page_name }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold text-uppercase">{{ $order->page_name }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->csr_name }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold text-uppercase">{{ $order->csr_name }}</span>
                                             </td>
                                             <td>
-                                                <a href="#" wire:click="$emit('showCustomerDetails', {{ $order->id }})">
-                                                    <span class="text-secondary text-xs font-weight-bold">{{ $order->customer_name }}</span>
+                                                <a href="#" style="color: #8392AB" wire:click="$emit('showCustomerDetails', {{ $order->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'" >
+                                                    <span class="text-xs font-weight-bold text-capitalize">{{ $order->customer_name }}</span>
                                                 </a>
                                             </td>
                                             <td>
@@ -169,21 +169,21 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->sku_2 }}</span>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upseller }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_item }}</span>
-                                            </td>
+                                            </td> --}}
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->main_item }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold text-capitalize">{{ $order->main_item }}</span>
                                             </td>
                                             <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->price }}</span>
                                             </td>
-                                            <td class="text-end" style="padding-right: 1.5rem">
+                                            {{-- <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_price }}</span>
-                                            </td>
+                                            </td> --}}
                                             <td class="text-end" style="padding-right: 1.5rem">
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->final_price }}</span>
                                             </td>
