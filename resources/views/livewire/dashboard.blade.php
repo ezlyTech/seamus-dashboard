@@ -8,11 +8,11 @@
                             <div style="width:fit-content" class="d-flex flex-wrap">
                                 <div class="mx-2">
                                     <label for="">From</label>
-                                    <input wire:model="from" type="date" class="form-control">
+                                    <input wire:model="startDate" type="date" class="form-control">
                                 </div>
                                 <div class="mx-2">
                                     <label for="">To</label>
-                                    <input wire:model="to" type="date" class="form-control">
+                                    <input wire:model="endDate" type="date" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -29,8 +29,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
                     <h5 class="font-weight-bolder mb-0">
-                      {{ $orderCount }}
-                      <span class="text-success text-sm font-weight-bolder">{{ $addedOrder }}</span>
+                      {{ $ordersPerDay }}
+                      <span class="text-success text-sm font-weight-bolder">{{ $ordersLast7Days }}</span>
                     </h5>
                   </div>
                 </div>
@@ -51,8 +51,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Average Value</p>
                     <h5 class="font-weight-bolder mb-0">
-                      ₱ 622.88
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
+                      ₱ {{ $averageValuePerDay }}
+                      <span class="text-success text-sm font-weight-bolder">{{ $averageValueIncrease }}%</span>
                     </h5>
                   </div>
                 </div>
@@ -73,8 +73,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Sales</p>
                     <h5 class="font-weight-bolder mb-0">
-                      ₱ 1,381,558
-                      <span class="text-danger text-sm font-weight-bolder">-2%</span>
+                      ₱ {{ $grossSalesPerDay }}
+                      <span class="text-danger text-sm font-weight-bolder">{{ $grossSalesIncrease }}%</span>
                     </h5>
                   </div>
                 </div>
