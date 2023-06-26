@@ -16,7 +16,9 @@ class Orders extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    protected $listeners = ['refreshComponent' => '$refresh'];
+    protected $listeners = [
+        'showCustomerDetails' => 'showCustomerDetails',
+    ];
 
     public $byStatus = null;
     public $byCTS = null;
@@ -314,6 +316,17 @@ class Orders extends Component
         $this->resetFields();
     }
 
+
+    
+    /**
+     * Open View
+     * 
+    */
+    public function showCustomerDetails($orderId)
+    {
+        $this->orderId = $orderId;
+        return redirect()->to('/orders/' . $orderId);
+    }
 
 
     public function render()

@@ -134,7 +134,9 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->csr_name }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->customer_name }}</span>
+                                                <a href="#" wire:click="$emit('showCustomerDetails', {{ $order->id }})">
+                                                    <span class="text-secondary text-xs font-weight-bold">{{ $order->customer_name }}</span>
+                                                </a>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
