@@ -29,8 +29,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
                     <h5 class="font-weight-bolder mb-0">
-                      ₱ 53,000
-                      <span class="text-success text-sm font-weight-bolder">2218</span>
+                      {{ $orderCount }}
+                      <span class="text-success text-sm font-weight-bolder">{{ $addedOrder }}</span>
                     </h5>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Value</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Sales</p>
                     <h5 class="font-weight-bolder mb-0">
                       ₱ 1,381,558
                       <span class="text-danger text-sm font-weight-bolder">-2%</span>
