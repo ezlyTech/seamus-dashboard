@@ -14,10 +14,13 @@ class General extends Component
     public 
     $status_name, 
     $status_edit_id,
+    $status_delete_id,
     $cts_name, 
     $cts_edit_id,
+    $cts_delete_id,
     $courier_name, 
-    $courier_edit_id;
+    $courier_edit_id,
+    $courier_delete_id;
 
 
     /**
@@ -174,6 +177,60 @@ class General extends Component
         $this->resetFields();
     }
 
+
+
+
+    /**
+     * Delete data
+     * 
+    */
+    public function deleteStatusConfirmation($id) {
+        $this->status_delete_id = $id;
+    }
+
+    public function deleteStatusData() {
+        $status = Status::where('id', $this->status_delete_id)->first();
+        $status->delete();
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-delete-modal');
+
+        session()->flash('message', 'Record has been deleted successfully!');
+
+        $this->status_delete_id = '';
+    }
+
+    public function deleteCTSConfirmation($id) {
+        $this->cts_delete_id = $id;
+    }
+
+    public function deleteCTSData() {
+        $cts = CallTextStatus::where('id', $this->cts_delete_id)->first();
+        $cts->delete();
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-delete-modal');
+
+        session()->flash('message', 'Record has been deleted successfully!');
+
+        $this->cts_delete_id = '';
+    }
+
+    public function deleteCourierConfirmation($id) {
+        $this->courier_delete_id = $id;
+    }
+
+    public function deleteCourierData() {
+        $courier = Courier::where('id', $this->courier_delete_id)->first();
+        $courier->delete();
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-delete-modal');
+
+        session()->flash('message', 'Record has been deleted successfully!');
+
+        $this->courier_delete_id = '';
+    }
 
 
 

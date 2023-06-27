@@ -341,6 +341,77 @@
                   </div>
                 </div>
             </div>
+
+
+            <!-- Delete Modal -->
+            <div wire:ignore.self class="modal fade" id="deleteStatusModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <p>Warning: This action cannot be undone!</p>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn bg-danger text-white" wire:click="deleteStatusData()">Delete</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="deleteCTSModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <p>Warning: This action cannot be undone!</p>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn bg-danger text-white" wire:click="deleteCTSData()">Delete</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="deleteCourierModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <p>Warning: This action cannot be undone!</p>
+                        </div>
+        
+                        <div class="modal-footer">
+                            <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn bg-danger text-white" wire:click="deleteCourierData()">Delete</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
     </div>
 
     <script>
@@ -357,7 +428,9 @@
         });
 
         window.addEventListener('close-delete-modal', event => {
-            $('#deleteModal').modal('hide');
+            $('#deleteStatusModal').modal('hide');
+            $('#deleteCTSModal').modal('hide');
+            $('#deleteCourierModal').modal('hide');
         });
     </script>
 </main>
