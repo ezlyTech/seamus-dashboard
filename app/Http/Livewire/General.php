@@ -97,6 +97,87 @@ class General extends Component
 
 
 
+
+    /**
+     * Edit Modal
+     * 
+    */
+    public function editStatus($id) {
+        $status = Status::where('id', $id)->first();
+
+        $this->status_edit_id = $status->id;
+        $this->status_name = $status->status_name;
+    }
+
+    public function editStatusData() {
+        // on form submit validation
+        $this->validate([
+            'status_name' => 'required'
+        ]);
+
+        $status = Status::where('id', $this->status_edit_id)->first();
+        $status->status_name = $this->status_name;
+
+        session()->flash('message', 'Status has been updated successfully!');
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-edit-modal');
+        $this->resetFields();
+    }
+
+    public function editCTS($id) {
+        $cts = CallTextStatus::where('id', $id)->first();
+
+        $this->cts_edit_id = $cts->id;
+        $this->cts_name = $cts->cts_name;
+    }
+
+    public function editCTSData() {
+        // on form submit validation
+        $this->validate([
+            'cts_name' => 'required'
+        ]);
+
+        $cts = CallTextStatus::where('id', $this->cts_edit_id)->first();
+        $cts->cts_name = $this->cts_name;
+        $cts->save();
+
+        session()->flash('message', 'Status has been updated successfully!');
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-edit-modal');
+        $this->resetFields();
+    }
+
+    public function editCourier($id) {
+        $courier = Courier::where('id', $id)->first();
+
+        $this->courier_edit_id = $courier->id;
+        $this->courier_name = $courier->courier_name;
+    }
+
+    public function editCourierData() {
+        // on form submit validation
+        $this->validate([
+            'courier_name' => 'required'
+        ]);
+
+        $courier = Courier::where('id', $this->courier_edit_id)->first();
+        $courier->courier_name = $this->courier_name;
+        $courier->save();
+
+        session()->flash('message', 'Courier has been updated successfully!');
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-edit-modal');
+        $this->resetFields();
+    }
+
+
+
+
+
+
     /**
      * Close Modal
      * 

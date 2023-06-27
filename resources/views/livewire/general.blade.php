@@ -18,7 +18,12 @@
                     <div class="card-body p-3 pb-0">
                         <ul class="list-group">
                             @foreach ($statuses as $status)
-                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }} <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }} 
+                                    <span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#editStatusModal" wire:click="editStatus({{ $status->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-pencil"></i>  </span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteStatusModal" wire:click="deleteStatusConfirmation({{ $status->id }})" onMouseOver="this.style.color='#ea0606'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-trash"></i>  </span>
+                                    </span>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -41,7 +46,12 @@
                     <div class="card-body p-3 pb-0">
                         <ul class="list-group">
                             @foreach ($calltextstatus as $cts)
-                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $cts->cts_name }}  <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $cts->cts_name }} 
+                                    <span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#editCTSModal" wire:click="editCTS({{ $cts->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-pencil"></i>  </span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteCTSModal" wire:click="deleteCTSConfirmation({{ $cts->id }})" onMouseOver="this.style.color='#ea0606'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-trash"></i>  </span>
+                                    </span>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -64,7 +74,12 @@
                     <div class="card-body p-3 pb-0">
                         <ul class="list-group">
                             @foreach ($couriers as $courier)
-                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $courier->courier_name }}  <span><i class="fa fa-solid fa-pencil"></i>  <i class="fa fa-solid fa-trash"></i></span></li>
+                                <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $courier->courier_name }}  
+                                    <span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#editCourierModal" wire:click="editCourier({{ $courier->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-pencil"></i>  </span>
+                                        <span class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deleteCourierModal" wire:click="deleteCourierConfirmation({{ $courier->id }})" onMouseOver="this.style.color='#ea0606'" onMouseOut="this.style.color='#8392AB'"><i class="fa fa-solid fa-trash"></i>  </span>
+                                    </span>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -213,7 +228,7 @@
                 <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Add Call & Text Status</h5>
+                        <h5 class="modal-title" id="addModalLabel">Add Courier</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -221,7 +236,96 @@
                     <div class="modal-body">
                         <form wire:submit.prevent="courierStore">
                             <div class="form-group">
-                                <label for="courier_name" class="form-control-label">Call & Text Status Name</label>
+                                <label for="courier_name" class="form-control-label">Courier Name</label>
+                                <input class="form-control" type="text" id="courier_name" wire:model="courier_name" placeholder="Type courier here">
+                                @error('courier_name')
+                                    <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                @enderror
+                            </div>
+            
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
+                                <button type="submit" class="btn bg-primary text-white">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+            <!-- Edit Modal -->
+            <div wire:ignore.self class="modal fade" id="editStatusModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="editStatusData">
+                            <div class="form-group">
+                                <label for="status_name" class="form-control-label">Status Name</label>
+                                <input class="form-control" type="text" id="status_name" wire:model="status_name" placeholder="Type status here">
+                                @error('status_name')
+                                    <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                @enderror
+                            </div>
+            
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
+                                <button type="submit" class="btn bg-primary text-white">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="editCTSModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Call & Text Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="editCTSData">
+                            <div class="form-group">
+                                <label for="cts_name" class="form-control-label">Call & Text Status Name</label>
+                                <input class="form-control" type="text" id="cts_name" wire:model="cts_name" placeholder="Type status here">
+                                @error('cts_name')
+                                    <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                @enderror
+                            </div>
+            
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
+                                <button type="submit" class="btn bg-primary text-white">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="editCourierModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Edit Courier</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="editCourierData">
+                            <div class="form-group">
+                                <label for="courier_name" class="form-control-label">Courier Name</label>
                                 <input class="form-control" type="text" id="courier_name" wire:model="courier_name" placeholder="Type status here">
                                 @error('courier_name')
                                     <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
@@ -247,7 +351,9 @@
         });
 
         window.addEventListener('close-edit-modal', event => {
-            $('#editModal').modal('hide');
+            $('#editStatusModal').modal('hide');
+            $('#editCTSModal').modal('hide');
+            $('#editCourierModal').modal('hide');
         });
 
         window.addEventListener('close-delete-modal', event => {
