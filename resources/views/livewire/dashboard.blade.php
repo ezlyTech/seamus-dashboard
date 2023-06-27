@@ -52,7 +52,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Average Value</p>
                     <h5 class="font-weight-bolder mb-0">
                       ₱ {{ $averageValuePerDay }}
-                      <span class="text-success text-sm font-weight-bolder">{{ $averageValueIncrease }}%</span>
+                      <span class="text-danger text-sm font-weight-bolder">{{ $averageValueIncrease }}%</span>
                     </h5>
                   </div>
                 </div>
