@@ -34,7 +34,7 @@
                                 <h6 class="mb-0">Call & Text Status</h6>
                             </div>
                             <div class="">
-                                <button class="btn btn-outline-primary btn-sm mb-0">Add New</button>
+                                <button class="btn btn-outline-primary btn-sm mb-0" type="button" data-bs-toggle="modal" data-bs-target="#addCTSModal">Add New</button>
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                 <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Add New Order</h5>
+                        <h5 class="modal-title" id="addModalLabel">Add New Status</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -179,11 +179,41 @@
                   </div>
                 </div>
             </div>
+
+            <div wire:ignore.self class="modal fade" id="addCTSModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                <div class="modal-sm modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalLabel">Add Call & Text Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="ctsStore">
+                            <div class="form-group">
+                                <label for="cts_name" class="form-control-label">Call & Text Status Name</label>
+                                <input class="form-control" type="text" id="cts_name" wire:model="cts_name" placeholder="Type status here">
+                                @error('cts_name')
+                                    <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                @enderror
+                            </div>
+            
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal" wire:click="closeModal()">Close</button>
+                                <button type="submit" class="btn bg-primary text-white">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
     </div>
 
     <script>
         window.addEventListener('close-add-modal', event => {
             $('#addStatusModal').modal('hide');
+            $('#addCTSModal').modal('hide');
         });
 
         window.addEventListener('close-edit-modal', event => {

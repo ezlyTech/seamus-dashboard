@@ -13,7 +13,9 @@ class General extends Component
 {
     public 
     $status_name, 
-    $status_edit_id;
+    $status_edit_id,
+    $cts_name, 
+    $cts_edit_id;
 
     /**
      * Input fields on update validation
@@ -22,6 +24,7 @@ class General extends Component
     {
         $this->validateOnly($fields, [
             'status_name' => 'required',
+            'cts_name' => 'required',
         ]);
     }
 
@@ -32,7 +35,7 @@ class General extends Component
     public function resetFields()
     {
         $this->status_edit_id = '';
-        $this->status_name = '';
+        $this->cts_name = '';
     }
 
     /*
@@ -59,6 +62,26 @@ class General extends Component
         $this->dispatchBrowserEvent('close-add-modal');
     }
 
+    public function ctsStore()
+    {        
+        // on form submit validation
+        $this->validate([
+            'cts_name' => 'required'
+        ]);
+
+        // Add order data
+        $cts = new CallTextStatus();
+        $cts->cts_name = $this->cts_name;
+
+        $cts->save();
+
+        session()->flash('message', 'New status has been added successfully!');
+        $this->resetFields();
+
+        // Hide modal
+        $this->dispatchBrowserEvent('close-add-modal');
+    }
+
 
 
     /**
@@ -66,7 +89,7 @@ class General extends Component
      * 
     */
     public function closeModal() {
-        // $this->resetFields();
+        $this->resetFields();
     }
 
     public function render()
