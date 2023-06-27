@@ -117,6 +117,7 @@ class General extends Component
 
         $status = Status::where('id', $this->status_edit_id)->first();
         $status->status_name = $this->status_name;
+        $status->save();
 
         session()->flash('message', 'Status has been updated successfully!');
 
