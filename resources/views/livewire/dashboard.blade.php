@@ -140,32 +140,32 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @if ( $statusTotals->count() > 0 )
-                      @foreach ( $statusTotals as $statusTotal )
+                    @if ( $statuses->count() > 0 )
+                      @foreach ( $statuses as $status )
                         <tr>
                           <td class="align-middle text-sm">
                             <span class="badge badge-sm 
-                            {{ $statusTotal->status_name == 'Delivered' ? 'delivered' : ''  }}
-                            {{ $statusTotal->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
-                            {{ $statusTotal->status_name == 'In-Transit' ? 'in-transit' : ''  }}
-                            {{ $statusTotal->status_name == 'Incomplete' ? 'incomplete' : ''  }}
-                            {{ $statusTotal->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
-                            {{ $statusTotal->status_name == 'Problematic' ? 'problematic' : ''  }}
-                            {{ $statusTotal->status_name == 'Reserved' ? 'reserved' : ''  }}
-                            {{ $statusTotal->status_name == 'Returned' ? 'returned' : ''  }}
-                            {{ $statusTotal->status_name == 'ODZ' ? 'odz' : ''  }}
-                            {{ $statusTotal->status_name == 'RTS' ? 'rts' : ''  }}
-                            {{ $statusTotal->status_name == 'Detained' ? 'detained' : ''  }}
-                            ">{{ $statusTotal->status_name }}</span>
+                            {{ $status->status_name == 'Delivered' ? 'delivered' : ''  }}
+                            {{ $status->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
+                            {{ $status->status_name == 'In-Transit' ? 'in-transit' : ''  }}
+                            {{ $status->status_name == 'Incomplete' ? 'incomplete' : ''  }}
+                            {{ $status->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
+                            {{ $status->status_name == 'Problematic' ? 'problematic' : ''  }}
+                            {{ $status->status_name == 'Reserved' ? 'reserved' : ''  }}
+                            {{ $status->status_name == 'Returned' ? 'returned' : ''  }}
+                            {{ $status->status_name == 'ODZ' ? 'odz' : ''  }}
+                            {{ $status->status_name == 'RTS' ? 'rts' : ''  }}
+                            {{ $status->status_name == 'Detained' ? 'detained' : ''  }}
+                            ">{{ $status->status_name }}</span>
                           </td>
                           <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">{{ $statusTotal->total_price }}</p>
+                            <p class="text-sm font-weight-bold mb-0">{{ $statusCounts[$status->id] ?? 0 }}</p>
                           </td>
                           <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                            <p class="text-sm font-weight-bold mb-0">{{ $averages[$status->id] ?? 0 }}</p>
                           </td>
                           <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                            <p class="text-sm font-weight-bold mb-0">{{ $totalPrices[$status->id] ?? 0 }}</p>
                           </td>
                         </tr>
                       @endforeach

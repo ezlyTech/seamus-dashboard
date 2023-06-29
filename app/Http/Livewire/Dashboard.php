@@ -62,12 +62,19 @@ class Dashboard extends Component
         // Statuses
         $statuses = Status::orderBy('status_name', 'asc')->get();
 
-        $statusTotals = DB::table('sales')
-                            ->join('statuses', 'sales.status_id', '=', 'statuses.id')
-                            ->select('statuses.status_name', DB::raw('SUM(sales.price) as total_price'))
-                            ->groupBy('statuses.status_name')
-                            ->get();
+        $statusCounts = Sales::select('status_id', DB::raw('count(*) as count'))
+                                ->groupBy('status_id')
+                                ->get()
+                                ->pluck('count', 'status_id');
+    
+        $totalPrices = Sales::select('status_id', DB::raw('sum(price) as total_price'))
+                                ->groupBy('status_id')
+                                ->get()
+                                ->pluck('total_price', 'status_id');
 
+        $averages = $statusCounts->map(function ($count, $statusId) use ($totalPrices) {
+            return $count > 0 ? round($totalPrices[$statusId] / $count, 2) : 0;
+        });
 
         $couriers = Courier::orderBy('courier_name', 'asc')->get();
 
@@ -80,7 +87,9 @@ class Dashboard extends Component
             'averageValuePerDay',
             'averageValueIncrease',
             'statuses',
-            'statusTotals',
+            'statusCounts',
+            'totalPrices',
+            'averages',
             'couriers'
         ));
     }
