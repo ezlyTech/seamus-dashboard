@@ -61,22 +61,32 @@ class Dashboard extends Component
 
         // Statuses
         $statuses = Status::orderBy('status_name', 'asc')->get();
-
         $statusCounts = Sales::select('status_id', DB::raw('count(*) as count'))
                                 ->groupBy('status_id')
                                 ->get()
                                 ->pluck('count', 'status_id');
-    
-        $totalPrices = Sales::select('status_id', DB::raw('sum(price) as total_price'))
+        $statusTotalPrices = Sales::select('status_id', DB::raw('sum(price) as total_price'))
                                 ->groupBy('status_id')
                                 ->get()
                                 ->pluck('total_price', 'status_id');
-
-        $averages = $statusCounts->map(function ($count, $statusId) use ($totalPrices) {
-            return $count > 0 ? round($totalPrices[$statusId] / $count, 2) : 0;
+        $statusAverages = $statusCounts->map(function ($count, $statusId) use ($statusTotalPrices) {
+            return $count > 0 ? round($statusTotalPrices[$statusId] / $count, 2) : 0;
         });
 
+
+        // Couriers
         $couriers = Courier::orderBy('courier_name', 'asc')->get();
+        $courierCounts = Sales::select('courier_id', DB::raw('count(*) as count'))
+            ->groupBy('courier_id')
+            ->get()
+            ->pluck('count', 'courier_id');
+        $courierTotalPrices = Sales::select('courier_id', DB::raw('sum(price) as total_price'))
+            ->groupBy('courier_id')
+            ->get()
+            ->pluck('total_price', 'courier_id');
+        $courierAverages = $courierCounts->map(function ($count, $courierId) use ($courierTotalPrices) {
+            return $count > 0 ? round($courierTotalPrices[$courierId] / $count, 2) : 0;
+        });
 
         // Pass the computed values to your view
         return view('livewire.dashboard', compact(
@@ -88,9 +98,12 @@ class Dashboard extends Component
             'averageValueIncrease',
             'statuses',
             'statusCounts',
-            'totalPrices',
-            'averages',
-            'couriers'
+            'statusTotalPrices',
+            'statusAverages',
+            'couriers',
+            'courierCounts',
+            'courierTotalPrices',
+            'courierAverages'
         ));
     }
 }

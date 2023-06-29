@@ -123,6 +123,8 @@
         </div>
       </div>
       <div class="row">
+
+        <!-- Order's Status -->
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-header pb-0">
@@ -136,7 +138,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -162,10 +164,59 @@
                             <p class="text-sm font-weight-bold mb-0">{{ $statusCounts[$status->id] ?? 0 }}</p>
                           </td>
                           <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">{{ $averages[$status->id] ?? 0 }}</p>
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $statusAverages[$status->id] ?? 0 }}</p>
                           </td>
                           <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">{{ $totalPrices[$status->id] ?? 0 }}</p>
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $statusTotalPrices[$status->id] ?? 0 }}</p>
+                          </td>
+                        </tr>
+                      @endforeach
+                    @else
+                      <tr>
+                          <td>
+                              <p class="text-xs font-weight-bold mb-0">No result</p>
+                          </td>
+                      </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courier's Status -->
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>Courier's Status</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2 overflow-auto" style="max-height: 350px">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Courier</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if ( $couriers->count() > 0 )
+                      @foreach ( $couriers as $courier )
+                        <tr>
+                          <td class="align-middle text-sm">
+                            <p class="text-sm font-weight-bold mb-0">{{ $courier->courier_name }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">{{ $courierCounts[$courier->id] ?? 0 }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $courierAverages[$courier->id] ?? 0 }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $courierTotalPrices[$courier->id] ?? 0 }}</p>
                           </td>
                         </tr>
                       @endforeach
