@@ -33,6 +33,25 @@
 
 <body class="g-sidenav-show bg-gray-100">
 
+    <style>
+        div::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        div::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        
+        div::-webkit-scrollbar-thumb {
+          background: #E4E4E4;
+          border-radius: 100px;
+        }
+        div::-webkit-scrollbar-thumb:hover {
+          background: #C7C7C7;
+        }
+    
+    </style>
+
     {{ $slot }}
 
     <!--   Core JS Files   -->

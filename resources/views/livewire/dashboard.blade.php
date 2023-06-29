@@ -1,4 +1,4 @@
- <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+ <main class="main-content position-relative h-100 border-radius-lg">
     <div class="container-fluid py-4">
             <!-- Filters -->
             <div class="row">
@@ -89,6 +89,7 @@
         </div>
       </div>
       <div class="row py-4">
+        {{-- Gross Sales Monthly --}}
         <div class="col-lg-5 mb-lg-0 mb-4">
           <div class="card">
               <div class="card-body p-3">
@@ -102,6 +103,8 @@
               </div>
           </div>
         </div>
+
+        {{-- Gross Chart --}}
         <div class="col-lg-5">
             <div class="card">
                 <div class="card-header pb-0">
@@ -119,6 +122,67 @@
             </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>Order's Status</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2 overflow-auto" style="max-height: 350px">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if ( $statusTotals->count() > 0 )
+                      @foreach ( $statusTotals as $statusTotal )
+                        <tr>
+                          <td class="align-middle text-sm">
+                            <span class="badge badge-sm 
+                            {{ $statusTotal->status_name == 'Delivered' ? 'delivered' : ''  }}
+                            {{ $statusTotal->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
+                            {{ $statusTotal->status_name == 'In-Transit' ? 'in-transit' : ''  }}
+                            {{ $statusTotal->status_name == 'Incomplete' ? 'incomplete' : ''  }}
+                            {{ $statusTotal->status_name == 'Picked-Up' ? 'picked-up' : ''  }}
+                            {{ $statusTotal->status_name == 'Problematic' ? 'problematic' : ''  }}
+                            {{ $statusTotal->status_name == 'Reserved' ? 'reserved' : ''  }}
+                            {{ $statusTotal->status_name == 'Returned' ? 'returned' : ''  }}
+                            {{ $statusTotal->status_name == 'ODZ' ? 'odz' : ''  }}
+                            {{ $statusTotal->status_name == 'RTS' ? 'rts' : ''  }}
+                            {{ $statusTotal->status_name == 'Detained' ? 'detained' : ''  }}
+                            ">{{ $statusTotal->status_name }}</span>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">{{ $statusTotal->total_price }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">$2,500</p>
+                          </td>
+                        </tr>
+                      @endforeach
+                    @else
+                      <tr>
+                          <td>
+                              <p class="text-xs font-weight-bold mb-0">No result</p>
+                          </td>
+                      </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -131,7 +195,7 @@
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["Nov" ,"Dec" ,"Jan", "Feb", "March", "April", "May", "June", "July"],
         datasets: [{
           label: "Sales",
           tension: 0.4,
@@ -201,7 +265,7 @@
     new Chart(ctx2, {
       type: "line",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["Nov" ,"Dec" ,"Jan", "Feb", "March", "April", "May", "June", "July"],
         datasets: [{
             label: "Gross Profit",
             tension: 0.4,

@@ -58,6 +58,19 @@ class Dashboard extends Component
 
         $averageValueIncrease = ($previousAverageValue != 0) ? (($currentAverageValue - $previousAverageValue) / $previousAverageValue * 100) : 0;
 
+
+        // Statuses
+        $statuses = Status::orderBy('status_name', 'asc')->get();
+
+        $statusTotals = DB::table('sales')
+                            ->join('statuses', 'sales.status_id', '=', 'statuses.id')
+                            ->select('statuses.status_name', DB::raw('SUM(sales.price) as total_price'))
+                            ->groupBy('statuses.status_name')
+                            ->get();
+
+
+        $couriers = Courier::orderBy('courier_name', 'asc')->get();
+
         // Pass the computed values to your view
         return view('livewire.dashboard', compact(
             'ordersPerDay',
@@ -65,7 +78,10 @@ class Dashboard extends Component
             'grossSalesPerDay',
             'grossSalesIncrease',
             'averageValuePerDay',
-            'averageValueIncrease'
+            'averageValueIncrease',
+            'statuses',
+            'statusTotals',
+            'couriers'
         ));
     }
 }
