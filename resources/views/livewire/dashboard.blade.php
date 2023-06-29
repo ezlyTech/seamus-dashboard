@@ -125,7 +125,7 @@
       <div class="row">
 
         <!-- Order's Status -->
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Order's Status</h6>
@@ -186,7 +186,7 @@
         </div>
 
         <!-- Courier's Status -->
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Courier's Status</h6>
