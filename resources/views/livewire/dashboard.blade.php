@@ -1,7 +1,7 @@
  <main class="main-content position-relative h-100 border-radius-lg">
     <div class="container-fluid py-4">
             <!-- Filters -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <form action="" method="GET" style="width: 100%">
                         <div style="display:flex; justify-content:space-between;" class="flex-wrap">
@@ -19,7 +19,7 @@
                     </form>
                     <hr>
                 </div>
-            </div>
+            </div> --}}
       
 
       <!-- 3 Cards -->      
@@ -77,7 +77,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Sales</p>
                     <h5 class="font-weight-bolder mb-0">
                       ₱ {{ $totalPrice }}
-                      <span class="text-danger text-sm font-weight-bolder">10%</span>
+                      <span class="text-success text-sm font-weight-bolder">21%</span>
                     </h5>
                   </div>
                 </div>
