@@ -15,7 +15,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pb-0">
+                    <div class="card-body p-3 pb-0 overflow-auto" style="max-height: 300px">
                         <ul class="list-group">
                             @foreach ($statuses as $status)
                                 <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $status->status_name }} 
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pb-0">
+                    <div class="card-body p-3 pb-0 overflow-auto" style="max-height: 300px">
                         <ul class="list-group">
                             @foreach ($calltextstatus as $cts)
                                 <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $cts->cts_name }} 
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pb-0">
+                    <div class="card-body p-3 pb-0 overflow-auto" style="max-height: 300px">
                         <ul class="list-group">
                             @foreach ($couriers as $courier)
                                 <li class="list-group-item border-0 d-flex justify-content-between p-2 mb-2 bg-gray-100 border-radius-lg">{{ $courier->courier_name }}  
