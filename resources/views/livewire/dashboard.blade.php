@@ -20,6 +20,9 @@
                     <hr>
                 </div>
             </div>
+      
+
+      <!-- 3 Cards -->      
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
@@ -29,8 +32,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
                     <h5 class="font-weight-bolder mb-0">
-                      {{ $ordersPerDay }}
-                      <span class="text-success text-sm font-weight-bolder">{{ $ordersLast7Days }}</span>
+                      {{ $count }}
+                      <span class="text-success text-sm font-weight-bolder">{{ $count }}</span>
                     </h5>
                   </div>
                 </div>
@@ -51,8 +54,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Average Value</p>
                     <h5 class="font-weight-bolder mb-0">
-                      ₱ {{ $averageValuePerDay }}
-                      <span class="text-danger text-sm font-weight-bolder">{{ $averageValueIncrease }}%</span>
+                      ₱ {{ $average }}
+                      <span class="text-success text-sm font-weight-bolder">12%</span>
                     </h5>
                   </div>
                 </div>
@@ -73,8 +76,8 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Sales</p>
                     <h5 class="font-weight-bolder mb-0">
-                      ₱ {{ $grossSalesPerDay }}
-                      <span class="text-danger text-sm font-weight-bolder">{{ $grossSalesIncrease }}%</span>
+                      ₱ {{ $totalPrice }}
+                      <span class="text-danger text-sm font-weight-bolder">10%</span>
                     </h5>
                   </div>
                 </div>
@@ -88,6 +91,9 @@
           </div>
         </div>
       </div>
+
+
+      <!-- Charts -->
       <div class="row py-4">
         {{-- Gross Sales Monthly --}}
         <div class="col-lg-5 mb-lg-0 mb-4">
@@ -105,7 +111,7 @@
         </div>
 
         {{-- Gross Chart --}}
-        <div class="col-lg-5">
+        <div class="col-lg-7">
             <div class="card">
                 <div class="card-header pb-0">
                     <h6>2023 Gross Chart</h6>
@@ -122,10 +128,11 @@
             </div>
         </div>
       </div>
-      <div class="row">
 
+      
+      <div class="row">
         <!-- Order's Status -->
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Order's Status</h6>
@@ -185,8 +192,57 @@
           </div>
         </div>
 
+        <!-- CSR Activity -->
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>CSR Activity</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2 overflow-auto" style="max-height: 350px">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if ( $csrData->count() > 0 )
+                      @foreach ( $csrData as $csrName => $data )
+                        <tr>
+                          <td class="align-middle text-sm">
+                            <p class="text-sm font-weight-bold mb-0 text-uppercase">{{ $csrName }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">{{ $data['count'] }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['average']}}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['totalPrice'] }}</p>
+                          </td>
+                        </tr>
+                      @endforeach
+                    @else
+                      <tr>
+                          <td>
+                              <p class="text-xs font-weight-bold mb-0">No result</p>
+                          </td>
+                      </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Courier's Status -->
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Courier's Status</h6>
@@ -207,7 +263,7 @@
                       @foreach ( $couriers as $courier )
                         <tr>
                           <td class="align-middle text-sm">
-                            <p class="text-sm font-weight-bold mb-0">{{ $courier->courier_name }}</p>
+                            <p class="text-sm font-weight-bold mb-0 text-uppercase">{{ $courier->courier_name }}</p>
                           </td>
                           <td class="text-end">
                             <p class="text-sm font-weight-bold mb-0">{{ $courierCounts[$courier->id] ?? 0 }}</p>
