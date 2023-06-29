@@ -153,7 +153,7 @@
                       @foreach ( $statuses as $status )
                         <tr>
                           <td class="align-middle text-sm">
-                            <span class="badge badge-sm 
+                            <span class="badge badge-sm badge-default
                             {{ $status->status_name == 'Delivered' ? 'delivered' : ''  }}
                             {{ $status->status_name == 'On Delivery' ? 'on-delivery' : ''  }}
                             {{ $status->status_name == 'In-Transit' ? 'in-transit' : ''  }}

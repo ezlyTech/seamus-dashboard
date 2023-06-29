@@ -19146,6 +19146,9 @@ textarea.form-control-lg {
 .badge {
   text-transform: uppercase;
 }
+.badge.badge-default {
+  background-color: #3e3e3e;
+}
 .badge.delivered {
   background-color: #32CD32;
 }

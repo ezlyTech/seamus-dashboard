@@ -6,6 +6,9 @@
 .badge {
   text-transform: uppercase;
 
+  &.badge-default {
+    background-color: #3e3e3e;
+  }
   &.delivered {
     background-color: #32CD32;
   }
