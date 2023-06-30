@@ -77,7 +77,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h6>Sales table</h6>
+                    <h6>Orders table</h6>
                     <div>
                         <a class="btn btn-icon btn-3 btn-outline-primary" type="button" href="{{ route('import') }}">
                             <span class="btn-inner--icon pe-1"><i class="fa fa-plus"></i></span>

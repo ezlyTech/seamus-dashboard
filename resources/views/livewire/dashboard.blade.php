@@ -97,11 +97,11 @@
       <div class="row py-4">
         {{-- Gross Sales Monthly --}}
         <div class="col-lg-5 mb-lg-0 mb-4">
-          <div class="card">
+          <div class="card h-100">
               <div class="card-body p-3">
                   <div class="bg-gradient-dark border-radius-lg py-3 pe-1 mb-3">
                       <div class="chart">
-                          <canvas id="chart-bars" class="chart-canvas" height="170px"></canvas>
+                          <canvas id="chart-bars" class="chart-canvas" height="270px"></canvas>
                       </div>
                   </div>
                   <h6 class="ms-2 mt-4 mb-0"> Gross Sales Monthly</h6>
@@ -192,55 +192,6 @@
           </div>
         </div>
 
-        <!-- CSR Activity -->
-        <div class="col-lg-4">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>CSR Activity</h6>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2 overflow-auto" style="max-height: 350px">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @if ( $csrData->count() > 0 )
-                      @foreach ( $csrData as $csrName => $data )
-                        <tr>
-                          <td class="align-middle text-sm">
-                            <p class="text-sm font-weight-bold mb-0 text-uppercase">{{ $csrName }}</p>
-                          </td>
-                          <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">{{ $data['count'] }}</p>
-                          </td>
-                          <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['average']}}</p>
-                          </td>
-                          <td class="text-end">
-                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['totalPrice'] }}</p>
-                          </td>
-                        </tr>
-                      @endforeach
-                    @else
-                      <tr>
-                          <td>
-                              <p class="text-xs font-weight-bold mb-0">No result</p>
-                          </td>
-                      </tr>
-                    @endif
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Courier's Status -->
         <div class="col-lg-4">
           <div class="card mb-4">
@@ -273,6 +224,55 @@
                           </td>
                           <td class="text-end">
                             <p class="text-sm font-weight-bold mb-0">₱ {{ $courierTotalPrices[$courier->id] ?? 0 }}</p>
+                          </td>
+                        </tr>
+                      @endforeach
+                    @else
+                      <tr>
+                          <td>
+                              <p class="text-xs font-weight-bold mb-0">No result</p>
+                          </td>
+                      </tr>
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSR Activity -->
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>CSR Activity</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2 overflow-auto" style="max-height: 350px">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CSR Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Order</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Avg. Value</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-end" style="padding-right: 20px">Gross Sales</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @if ( $csrData->count() > 0 )
+                      @foreach ( $csrData as $csrName => $data )
+                        <tr>
+                          <td class="align-middle text-sm">
+                            <p class="text-sm font-weight-bold mb-0 text-uppercase">{{ $csrName }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">{{ $data['count'] }}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['average']}}</p>
+                          </td>
+                          <td class="text-end">
+                            <p class="text-sm font-weight-bold mb-0">₱ {{ $data['totalPrice'] }}</p>
                           </td>
                         </tr>
                       @endforeach
