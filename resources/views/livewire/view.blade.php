@@ -18,7 +18,7 @@
                 ">{{ $order->status->status_name }}</span>
                 <span class="badge badge-sm cts-badge">{{ $order->calltextstatus->cts_name }}</span>
             </div>
-            <h6>{{ $order->sales_date }}</h6>
+            {{-- <h6>{{ $order->sales_date }}</h6> --}}
         </div>
 
         <hr>
@@ -125,6 +125,33 @@
                 <p class="m-0 small">Final Price:</p>
                 @if($order->final_price)
                     <h6>{{ $order->final_price }}</h6>
+                @else
+                    <h6>---</h6>
+                @endif
+            </div>
+        </div>
+
+        <div class="row py-3">
+            <div class="col-md-4">
+                <p class="m-0 small">Sales Date:</p>
+                @if($order->sales_date)
+                    <h6>{{ $order->sales_date }}</h6>
+                @else
+                    <h6>---</h6>
+                @endif
+            </div>
+            <div class="col-md-4">
+                <p class="m-0 small">Pick-up Date:</p>
+                @if($order->pickup_date)
+                    <h6>{{ $order->pickup_date }}</h6>
+                @else
+                    <h6>---</h6>
+                @endif
+            </div>
+            <div class="col-md-4">
+                <p class="m-0 small">RTS Returned Date:</p>
+                @if($order->rts_returned_date)
+                    <h6>{{ $order->rts_returned_date }}</h6>
                 @else
                     <h6>---</h6>
                 @endif

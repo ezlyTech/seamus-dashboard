@@ -54,6 +54,8 @@ class Orders extends Component
     $status_id,
     $tracking_number,
     $rts_tracking_number,
+    $pickup_date,
+    $rts_returned_date,
     $order_edit_id, 
     $order_delete_id;
 

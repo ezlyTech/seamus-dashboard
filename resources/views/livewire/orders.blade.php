@@ -331,7 +331,7 @@
                                     <div class="form-group">
                                         <label for="cts_id" class="form-control-label">Call & Text Status</label>
                                         <select class="form-select" wire:model="cts_id">
-                                            <option value="">Select Courier</option>
+                                            <option value="">Select Status</option>
                                             @foreach ($calltextstatus as $cts)
                                                 <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
                                             @endforeach
@@ -399,19 +399,23 @@
                                     @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="courier_id" class="form-control-label">Courier</label>
-                                        <select class="form-select" wire:model="courier_id">
-                                            <option value="">Select Courier</option>
-                                            @foreach ($couriers as $courier)
-                                                <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('courier_id')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="pickup_date" class="form-control-label">Pick-up Date</label>
+                                    <input class="form-control" type="date" id="pickup_date" wire:model="pickup_date" placeholder="">
+                                    @error('pickup_date')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $pickup_date }}</span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="rts_returned_date" class="form-control-label">RTS Returned Date</label>
+                                    <input class="form-control" type="date" id="rts_returned_date" wire:model="rts_returned_date" placeholder="₱ 0.00">
+                                    @error('rts_returned_date')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $rts_returned_date }}</span>
+                                    @enderror
+                                  </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -435,9 +439,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="notes" class="form-control-label">Notes</label>
-                                        <input class="form-control" type="text" id="notes" wire:model="notes" placeholder="Eg. No landmark">
-                                        @error('notes')
+                                        <label for="courier_id" class="form-control-label">Courier</label>
+                                        <select class="form-select" wire:model="courier_id">
+                                            <option value="">Select Courier</option>
+                                            @foreach ($couriers as $courier)
+                                                <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('courier_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -461,6 +470,15 @@
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
                                   </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="notes" class="form-control-label">Notes</label>
+                                        <input class="form-control" type="text" id="notes" wire:model="notes" placeholder="Eg. No landmark">
+                                        @error('notes')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
             
@@ -584,7 +602,7 @@
                                     <div class="form-group">
                                         <label for="cts_id" class="form-control-label">Call & Text Status</label>
                                         <select class="form-select" wire:model="cts_id">
-                                            <option value="">Select Courier</option>
+                                            <option value="">Select Status</option>
                                             @foreach ($calltextstatus as $cts)
                                                 <option value="{{ $cts->id }}">{{ $cts->cts_name }}</option>
                                             @endforeach
@@ -652,19 +670,23 @@
                                     @enderror
                                   </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="courier_id" class="form-control-label">Courier</label>
-                                        <select class="form-select" wire:model="courier_id">
-                                            <option value="">Select Courier</option>
-                                            @foreach ($couriers as $courier)
-                                                <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('courier_id')
-                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="pickup_date" class="form-control-label">Pick-up Date</label>
+                                    <input class="form-control" type="date" id="pickup_date" wire:model="pickup_date" placeholder="">
+                                    @error('pickup_date')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $pickup_date }}</span>
+                                    @enderror
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                    <label for="rts_returned_date" class="form-control-label">RTS Returned Date</label>
+                                    <input class="form-control" type="date" id="rts_returned_date" wire:model="rts_returned_date" placeholder="₱ 0.00">
+                                    @error('rts_returned_date')
+                                        <span class="text-danger" style="font-size: 11.5px">{{ $rts_returned_date }}</span>
+                                    @enderror
+                                  </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -688,9 +710,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="notes" class="form-control-label">Notes</label>
-                                        <input class="form-control" type="text" id="notes" wire:model="notes" placeholder="Eg. No landmark">
-                                        @error('notes')
+                                        <label for="courier_id" class="form-control-label">Courier</label>
+                                        <select class="form-select" wire:model="courier_id">
+                                            <option value="">Select Courier</option>
+                                            @foreach ($couriers as $courier)
+                                                <option value="{{ $courier->id }}">{{ $courier->courier_name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('courier_id')
                                             <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -714,6 +741,15 @@
                                         <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
                                     @enderror
                                   </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="notes" class="form-control-label">Notes</label>
+                                        <input class="form-control" type="text" id="notes" wire:model="notes" placeholder="Eg. No landmark">
+                                        @error('notes')
+                                            <span class="text-danger" style="font-size: 11.5px">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
             
