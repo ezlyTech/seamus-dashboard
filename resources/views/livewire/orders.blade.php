@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <form action="" method="GET" style="width: 100%">
-                        <div style="display:flex; justify-content:space-between;" class="flex-wrap">
+                        <div style="display:flex; justify-content:space-between;" class="flex-wrap gap-3">
                             <div style="width:fit-content" class="d-flex flex-wrap">
                                 <div class="mx-2">
                                     <label for="">From</label>
