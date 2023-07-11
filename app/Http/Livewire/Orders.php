@@ -86,6 +86,8 @@ class Orders extends Component
             'status_id' => 'required',
             'tracking_number' => 'required',
             'rts_tracking_number' => '',
+            'pickup_date' => '',
+            'rts_returned_date' => '',
         ]);
     }
 
@@ -119,6 +121,8 @@ class Orders extends Component
         $this->status_id = '';
         $this->tracking_number = '';
         $this->rts_tracking_number = '';
+        $this->pickup_date = '';
+        $this->rts_returned_date = '';
     }
 
 
@@ -154,6 +158,8 @@ class Orders extends Component
             'status_id' => 'required',
             'tracking_number' => 'required',
             'rts_tracking_number' => '',
+            'pickup_date' => '',
+            'rts_returned_date' => '',
         ]);
 
         // Add order data
@@ -180,6 +186,8 @@ class Orders extends Component
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         $sales->rts_tracking_number = $this->rts_tracking_number;
+        $sales->pickup_date = $this->pickup_date;
+        $sales->rts_returned_date = $this->rts_returned_date;
 
         $sales->save();
 
@@ -222,6 +230,8 @@ class Orders extends Component
         $this->status_id = $sales->status_id;
         $this->tracking_number = $sales->tracking_number;
         $this->rts_tracking_number = $sales->rts_tracking_number;
+        $this->pickup_date = $sales->pickup_date;
+        $this->rts_returned_date = $sales->rts_returned_date;
     }
 
     public function editOrderData() {
@@ -249,6 +259,8 @@ class Orders extends Component
             'status_id' => 'required',
             'tracking_number' => 'required',
             'rts_tracking_number' => '',
+            'pickup_date' => '',
+            'rts_returned_date' => '',
         ]);
 
         $sales = Sales::where('id', $this->order_edit_id)->first();
@@ -275,6 +287,8 @@ class Orders extends Component
         $sales->status_id = $this->status_id;
         $sales->tracking_number = $this->tracking_number;
         $sales->rts_tracking_number = $this->rts_tracking_number;
+        $sales->pickup_date = $this->pickup_date;
+        $sales->rts_returned_date = $this->rts_returned_date;
 
         $sales->save();
 

@@ -37,7 +37,9 @@ class SalesImport implements ToModel,WithHeadingRow
             'courier_id' => $row['courier'],
             'status_id' => $row['status'],
             'tracking_number' => $row['tracking_number'],
-            'rts_tracking_number' => $row['rts_tracking_number']
+            'rts_tracking_number' => $row['rts_tracking_number'],
+            'pickup_date' => $row['pickup_date'],
+            'rts_returned_date' => $row['rts_returned_date']
         ]);
     }
 }

@@ -35,6 +35,8 @@ return new class extends Migration
             $table->string('status_id');
             $table->string('tracking_number');
             $table->string('rts_tracking_number')->nullable();
+            $table->date('pickup_date')->nullable();
+            $table->date('rts_returned_date')->nullable();
             $table->timestamps();
         });
     }

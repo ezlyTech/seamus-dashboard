@@ -19,7 +19,8 @@ class Sales extends Model
         'upsell_item', 'price', 'upsell_price', 
         'final_price', 'notes', 'cts_id', 
         'courier_id', 'status_id', 
-        'tracking_number', 'rts_tracking_number'
+        'tracking_number', 'rts_tracking_number',
+        'pickup_date', 'rts_returned_date'
     ];
 
     public function scopeSearch($query, $term) {
