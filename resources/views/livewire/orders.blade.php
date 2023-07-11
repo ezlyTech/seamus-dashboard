@@ -113,7 +113,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-end">Final Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Courier</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Tracking Number</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">RTS Tracking Number</th>
+                                    <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder">RTS Tracking Number</th> -->
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder position-sticky top-0 end-0 bg-white text-end">Action</th>
                                 </tr>
                             </thead>
@@ -142,7 +142,7 @@
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->number }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->address_landmark }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($order->address_landmark, 25)  }}</span>
                                             </td>
                                             <td class="align-middle text-sm">
                                                 <span class="badge badge-sm 
@@ -193,9 +193,9 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->tracking_number }}</span>
                                             </td>
-                                            <td>
+                                            <!-- <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->rts_tracking_number }}</span>
-                                            </td>
+                                            </td> -->
                             
                                             <td class="align-middle position-sticky top-0 end-0 bg-white">
                                                 <span class=" font-weight-bold text-xs px-1 cursor-pointer" data-bs-toggle="modal" data-bs-target="#editModal" wire:click="editOrder({{ $order->id }})" onMouseOver="this.style.color='#2d4491'" onMouseOut="this.style.color='#8392AB'" >
