@@ -33,7 +33,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
                     <h5 class="font-weight-bolder mb-0">
                       {{ $count }}
-                      <span class="text-success text-sm font-weight-bolder">{{ $count }}</span>
+                      {{-- <span class="text-success text-sm font-weight-bolder">{{ $count }}</span> --}}
                     </h5>
                   </div>
                 </div>
@@ -55,7 +55,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Average Value</p>
                     <h5 class="font-weight-bolder mb-0">
                       ₱ {{ $average }}
-                      <span class="text-success text-sm font-weight-bolder">12%</span>
+                      {{-- <span class="text-success text-sm font-weight-bolder">12%</span> --}}
                     </h5>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Gross Sales</p>
                     <h5 class="font-weight-bolder mb-0">
                       ₱ {{ $totalPrice }}
-                      <span class="text-success text-sm font-weight-bolder">21%</span>
+                      {{-- <span class="text-success text-sm font-weight-bolder">21%</span> --}}
                     </h5>
                   </div>
                 </div>

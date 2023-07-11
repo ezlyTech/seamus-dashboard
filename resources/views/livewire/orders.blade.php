@@ -179,13 +179,13 @@
                                                 <span class="text-secondary text-xs font-weight-bold text-capitalize">{{ $order->main_item }}</span>
                                             </td>
                                             <td class="text-end" style="padding-right: 1.5rem">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->price }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">₱ {{ $order->price }}</span>
                                             </td>
                                             {{-- <td class="text-end" style="padding-right: 1.5rem">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->upsell_price }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">₱ {{ $order->upsell_price }}</span>
                                             </td> --}}
                                             <td class="text-end" style="padding-right: 1.5rem">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $order->final_price }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">₱ {{ $order->final_price }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">{{ $order->courier->courier_name }}</span>
